@@ -4,7 +4,7 @@ class CreateProjects < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :client
       t.date :deadline
-      t.time :expected_time
+      t.integer :expected_time
       t.boolean :completed
       t.boolean :within_deadline
       t.references :user, null: false, foreign_key: true

@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_11_05_014845) do
     t.string "name"
     t.string "client"
     t.date "deadline"
-    t.time "expected_time"
+    t.integer "expected_time"
     t.boolean "completed"
     t.boolean "within_deadline"
     t.bigint "user_id", null: false
