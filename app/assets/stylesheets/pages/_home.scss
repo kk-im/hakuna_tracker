@@ -1,1 +1,36 @@
 // Specific CSS for your home-page
+.main {
+  padding: 100px;
+  overflow: hidden;
+  min-height: 100vh;
+  font-family: $inter;
+
+  font-weight: 300;
+}
+
+.full-width {
+  min-width: 100vw;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid red;
+}
+
+#new-user-header {
+  padding-top: 5vh;
+  height: 50vh;
+
+  h1 {
+    font-size: 10rem;
+  }
+}
+
+.new-user-home-link {
+  border: 1px solid #000;
+  font-size: 4rem;
+  padding: 15px 75px;
+}
