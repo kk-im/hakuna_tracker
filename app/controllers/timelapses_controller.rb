@@ -7,8 +7,8 @@ class TimelapsesController < ApplicationController
   end
 
   def update
-    @timelapse = Timelapse.find[params:id]
-    @timelapse.description = [params:description]
+    @timelapse = Timelapse.find[params: 'id']
+    @timelapse.description = [params: 'description'] if params['description']
     @timelapse.end_time = Time.now
     @timelapse.update
   end
