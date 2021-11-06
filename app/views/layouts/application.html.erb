@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HakunaTracker</title>
+    <title>Hakuna Tracker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,7 +14,9 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <%= render 'shared/sidebar' %>
+        <% if user_signed_in? %>
+         <%= render 'shared/sidebar' %>
+        <% end %>
         <%= render 'shared/flashes' %>
         <%= yield %>
       </div>

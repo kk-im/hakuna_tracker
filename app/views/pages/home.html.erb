@@ -1,5 +1,26 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<div class='vh-75'>
-  <%= render 'new', project: @project %>
-</div>
+ <%# This is the code for when a new user comes onto the app %>
+ <% unless user_signed_in? %>
+  <div class="main new-user-home">
+    <div class="full-width">
+      <div class="triangle"></div>
+    </div>
+
+    <div id="new-user-header" class="full-width">
+      <h1>Welcome to Hakuna</h1>
+    </div>
+
+    <div class="full-width" id="new-user-home-button">
+      <%= link_to "Log in", new_user_session_path, class: 'new-user-home-link' %>
+      <%= link_to "Sign up", new_user_registration_path, class: 'new-user-home-link' %>
+      <a href="" class='new-user-home-link'>What we do</a>
+    </div>
+
+  </div>
+
+  <% else %>
+
+  <h1>Pages#home</h1>
+    <div class='vh-75'>
+      <%= render 'new', project: @project %>
+    </div>
+ <% end %>
