@@ -1,5 +1,18 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "devise-form";
+
+body {
+  background-color: #E2E2E2;
+}
+
+.main {
+  padding: 50px;
+  overflow: hidden;
+  max-height: 100vh;
+  font-family: $inter;
+  font-weight: 300;
+}
 
 a {
   color: #000;
@@ -8,4 +21,10 @@ a {
     text-decoration: none;
     color: #000;
   }
+}
+
+.section-title {
+  text-transform: uppercase;
+  color: $orange;
+  font-weight: 400;
 }
