@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :projects, only: [:create] do
-    resources :sessions, only: [:new]
+    resources :timelapses, only: [:create]
   end
+
+  resources :timelapses, only: [:update]
 end
