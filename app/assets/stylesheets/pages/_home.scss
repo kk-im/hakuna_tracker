@@ -1,15 +1,15 @@
 // Specific CSS for your home-page
 .main {
-  padding: 100px;
+  padding: 50px;
   overflow: hidden;
-  min-height: 100vh;
+  max-height: 100vh;
   font-family: $inter;
 
   font-weight: 300;
 }
 
 .full-width {
-  min-width: 100vw;
+  width: 100%;
 }
 
 .triangle {
@@ -17,20 +17,33 @@
   height: 0;
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
-  border-bottom: 100px solid red;
+  border-bottom: 100px solid $orange;
 }
 
 #new-user-header {
   padding-top: 5vh;
-  height: 50vh;
+  height: 65vh;
 
   h1 {
-    font-size: 10rem;
+    font-size: 9rem;
+    font-weight: 200;
   }
 }
 
+#new-user-home-button {
+  display: flex;
+  justify-content: space-between;
+}
 .new-user-home-link {
   border: 1px solid #000;
-  font-size: 4rem;
-  padding: 15px 75px;
+  border-radius: 50px;
+  width: 31%;
+  text-align: center;
+  font-size: 3rem;
+  padding: 10px 75px;
+
+  &:hover {
+    background: $orange;
+    cursor: pointer;
+  }
 }

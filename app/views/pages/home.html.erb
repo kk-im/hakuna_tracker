@@ -12,7 +12,7 @@
     <div class="full-width" id="new-user-home-button">
       <%= link_to "Log in", new_user_session_path, class: 'new-user-home-link' %>
       <%= link_to "Sign up", new_user_registration_path, class: 'new-user-home-link' %>
-      <a href="" class='new-user-home-link'>What we do</a>
+      <a href="" class='new-user-home-link'>About</a>
     </div>
 
   </div>
@@ -20,7 +20,7 @@
   <% else %>
 
   <h1>Pages#home</h1>
-    <div class='vh-75'>
+    <div>
       <%= render 'new', project: @project %>
     </div>
  <% end %>
