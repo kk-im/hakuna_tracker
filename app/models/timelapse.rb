@@ -1,3 +1,3 @@
-class Session < ApplicationRecord
+class Timelapse < ApplicationRecord
   belongs_to :project
 end
