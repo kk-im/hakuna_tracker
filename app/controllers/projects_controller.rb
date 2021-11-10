@@ -17,8 +17,9 @@ class ProjectsController < ApplicationController
   end
 
   private
-
+  
   def project_params
     params.require(:project).permit(:name, :client, :deadline)
   end
+
 end
