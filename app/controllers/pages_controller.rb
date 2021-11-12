@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @project = Project.new
+    @projects = Project.all
   end
 
   def create

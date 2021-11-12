@@ -19,8 +19,12 @@
 
   <% else %>
 
-  <h1>Pages#home</h1>
+    <h1>Pages#home</h1>
     <div>
       <%= render 'new', user:current_user, project: @project %>
     </div>
+    <div>
+      <%= render 'projects/index'%>
+    </div>
+
  <% end %>

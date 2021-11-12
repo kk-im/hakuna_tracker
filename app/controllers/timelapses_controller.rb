@@ -14,6 +14,16 @@ class TimelapsesController < ApplicationController
     @timelapse.end_time = Time.now
     @timelapse.duration = @timelapse.end_time - @timelapse.start_time
     @timelapse.save
+    @timelapse.project.cost += @timelapse.duration * @timelapse.project.rate
     # return something for the frontend
   end
 end
+
+# rails console commands to test update action
+# User.create!(email: "test2@test.com", password: "123456")
+# Project.create!(user: User.last, name: "Special feature", client: "Julio", rate: 8)
+# Timelapse.create!(project: Project.last, start_time: Time.now)
+# tl = Timelapse.last
+# tl.end_time = Time.now
+# tl.duration = tl.end_time - tl.start_time
+# tl.project.cost = tl.duration * tl.project.rate
