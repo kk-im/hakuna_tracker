@@ -16,6 +16,12 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @status = @project.completed ? "Complete" : "Incomplete"
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "file_name", template: "projects/project.html.erb"   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   def edit
