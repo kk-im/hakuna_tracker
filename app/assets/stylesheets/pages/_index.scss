@@ -4,6 +4,7 @@
 
 body {
   background-color: #E2E2E2;
+  font-family: $inter;
 }
 
 .main {
@@ -31,4 +32,9 @@ a {
   text-transform: uppercase;
   color: $orange;
   font-weight: 400;
+}
+
+button {
+  border: none;
+  background: none;
 }
