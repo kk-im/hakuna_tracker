@@ -1,0 +1,31 @@
+.project-card {
+  border: 1px solid black;
+  padding: 8px 24px;
+  border-radius: 50px;
+  transition: opacity 0.3s ease;
+}
+
+.dashboard {
+  color: $orange;
+  font-size: larger;
+}
+
+.card-project {
+  width: 15% ;
+}
+
+.card-client {
+  width: 20% ;
+}
+
+.card-arrow {
+  width: 5%;
+}
+
+.deadline {
+  color: gray;
+}
+
+.margin-b{
+  margin:0%;
+}
