@@ -3,7 +3,7 @@
   <h1>Hakuna</h1>
   <div class="sidebar-section">
     <h4 class="sidebar-title">View</h4>
-    <a href="" class="sidebar-link">projects</a>
+    <a href="" class="sidebar-link">Projects</a>
     <a href="" class="sidebar-link">Clients</a>
     <a href="" class="sidebar-link">Completed</a>
   </div>
@@ -19,7 +19,10 @@
 
   <div class="sidebar-section">
     <%= render 'projects/new', user:current_user, project: @project, class: 'sidebar-link' %>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+    <div class="logout">
+      <%= image_tag "https://news.artnet.com/app/news-upload/2021/08/E9kJupyXIAsleS_-1024x576.png", class: "avatar dropdown-toggle", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+    </div>
   </div>
 
 </nav>

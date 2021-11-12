@@ -5,6 +5,7 @@
   position: absolute;
   background-color: #E9E9E9;
   font-family: $inter;
+  font-weight: 400;
   width: 17vw;
   padding: 35px;
 
@@ -16,14 +17,15 @@
     color: $orange;
     font-size: 0.85em;
     text-transform: uppercase;
-    font-weight: 400;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
   }
 
   .sidebar-link {
     display: block;
     margin-bottom: 10px;
+    font-size: 1.1em !important;
   }
+
 
   > * {
     width: 100%;
@@ -31,7 +33,18 @@
 }
 
 .sidebar-section {
+
+  button {
+    margin-bottom: 25px;
+  }
+
   > * {
     display: block;
+  }
+}
+
+.logout {
+  img {
+    margin-right: 15px;
   }
 }
