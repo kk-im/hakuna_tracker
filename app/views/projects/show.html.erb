@@ -1,12 +1,14 @@
-<h1>PROJECTS</h1>
-<h2><%= @project.name %></h2>
-<h2><%= @project.client %></h2>
-<p><%= @status %></p>
-<p>Due date: <%= @project.deadline %></p>
-<p>Rate: $ <%= @project.rate %>/hr</p>
-<%= render 'edit', project: @project %>
-<button><%= link_to 'Delete', project_path(@project), method: 'delete'%></button>
-<h2>Log</h2>
-<%= render 'table', project: @projects %>
-<%# falta agregar el Total($) y el botón  %>
-<button><%= link_to 'Generate invoice' %></button>
+<div class='main main-signed-in'>
+  <h1>PROJECTS</h1>
+  <h2><%= @project.name %></h2>
+  <h2><%= @project.client %></h2>
+  <p><%= @status %></p>
+  <p>Due date: <%= @project.deadline %></p>
+  <p>Rate: $ <%= @project.rate %>/hr</p>
+  <%= render 'edit', project: @project %>
+  <button><%= link_to 'Delete', project_path(@project), method: 'delete'%></button>
+  <h2>Log</h2>
+  <%= render 'table', project: @projects %>
+  <%# falta agregar el Total($) y el botón  %>
+  <button><%= link_to 'Generate invoice' %></button>
+</div>

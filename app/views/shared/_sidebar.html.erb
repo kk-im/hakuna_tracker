@@ -16,14 +16,7 @@
     <h4 class="sidebar-title">Info</h4>
     <a href="" class="sidebar-link">About</a>
   </div>
-
-  <div class="sidebar-section">
-    <%= render 'projects/new', user:current_user, project: @project, class: 'sidebar-link' %>
-    <div class="logout">
-      <%= image_tag "https://news.artnet.com/app/news-upload/2021/08/E9kJupyXIAsleS_-1024x576.png", class: "avatar dropdown-toggle", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-    </div>
-  </div>
+  <%= render 'projects/new', project: @project%>
 
 </nav>
 <%# <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light vh-100 sidebar collapse">
