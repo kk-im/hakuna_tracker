@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @project = Project.new
-    @projects = Project.all
+    @projects = Project.where(user: current_user)
   end
 
 end
