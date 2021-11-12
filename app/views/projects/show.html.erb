@@ -11,4 +11,5 @@
   <%= render 'table', project: @projects %>
   <%# falta agregar el Total($) y el botón  %>
   <button><%= link_to 'Generate invoice' %></button>
+  <%= link_to 'PDF', project_path(@project, format: :pdf), class: "btn btn-danger" %> <%# Boton para PDF by: Mau:)  %>
 </div>
