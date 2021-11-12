@@ -14,7 +14,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for([user, project], url: pages_path, method: :post) do |f| %>
+        <%= simple_form_for(project) do |f| %>
           <%= f.input :name, :label => "Name it"  %>
           <%= f.input :client  %>
           <%= f.input :expected_time, :label => "How many hours will it take?", html5: true, input_html: { min: 1 }  %>
