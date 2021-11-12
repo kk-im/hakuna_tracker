@@ -17,7 +17,10 @@
     <a href="" class="sidebar-link">About</a>
   </div>
 
-  <%= render 'new', user:current_user, project: @project %>
+  <div class="sidebar-section">
+    <%= render 'projects/new', user:current_user, project: @project, class: 'sidebar-link' %>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+  </div>
 
 </nav>
 <%# <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light vh-100 sidebar collapse">
