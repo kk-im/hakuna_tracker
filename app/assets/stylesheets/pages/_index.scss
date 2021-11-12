@@ -8,10 +8,14 @@ body {
 
 .main {
   padding: 50px;
-  overflow: hidden;
   max-height: 100vh;
   font-family: $inter;
   font-weight: 300;
+}
+
+.main-signed-in {
+  margin-left: 17vw;
+  overflow: auto !important;
 }
 
 a {
