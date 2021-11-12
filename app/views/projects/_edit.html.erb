@@ -1,6 +1,8 @@
+<%# Toda esta vista tiene código copiado, no revisado %>
+<%= link_to "Edit", edit_project_path(project)%>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-  Add a new project
+  Edit
 </button>
 
 <!-- Modal -->
@@ -14,12 +16,11 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for([user, project], url: pages_path, method: :post) do |f| %>
+        <%= simple_form_for(project, url: projects_path, method: :post) do |f| %>
           <%= f.input :name, :label => "Name it"  %>
           <%= f.input :client  %>
-          <%= f.input :expected_time, :label => "How many hours will it take?", html5: true, input_html: { min: 1 }  %>
           <%= f.input :deadline, html5: true %>
-          <%= f.input :rate, :label => "Rate ($/hr)" %>
+          <%= f.input :expected_time, :label => "How many hours will it take?", html5: true, input_html: { min: 1 }  %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
