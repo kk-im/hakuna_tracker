@@ -1,6 +1,10 @@
 .sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: absolute;
   background-color: #E9E9E9;
+  font-family: $inter;
   width: 17vw;
   padding: 35px;
 
@@ -8,7 +12,26 @@
     font-weight: 400;
   }
 
+  .sidebar-title {
+    color: $orange;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 35px;
+  }
+
+  .sidebar-link {
+    display: block;
+    margin-bottom: 10px;
+  }
+
   > * {
     width: 100%;
+  }
+}
+
+.sidebar-section {
+  > * {
+    display: block;
   }
 }
