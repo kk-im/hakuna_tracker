@@ -7,3 +7,6 @@
 <%= render 'edit', project: @project %>
 <button><%= link_to 'Delete', project_path(@project), method: 'delete'%></button>
 <h2>Log</h2>
+<%= render 'table', project: @projects %>
+<%# falta agregar el Total($) y el botón  %>
+<button><%= link_to 'Generate invoice' %></button>
