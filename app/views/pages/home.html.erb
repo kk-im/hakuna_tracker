@@ -1,30 +1,29 @@
  <%# This is the code for when a new user comes onto the app %>
- <% unless user_signed_in? %>
-  <div class="main new-user-home">
-    <div class="full-width">
-      <div class="triangle"></div>
+ <div class="vh-100">
+  <% unless user_signed_in? %>
+    <div class="main new-user-home overflow-hidden">
+      <div class="full-width">
+        <div class="triangle"></div>
+      </div>
+
+      <div id="new-user-header" class="full-width">
+        <h1>Welcome to Hakuna</h1>
+      </div>
+
+      <div class="full-width" id="new-user-home-button">
+        <%= link_to "Log in", new_user_session_path, class: 'new-user-home-link' %>
+        <%= link_to "Sign up", new_user_registration_path, class: 'new-user-home-link' %>
+        <a href="" class='new-user-home-link'>About</a>
+      </div>
     </div>
 
-    <div id="new-user-header" class="full-width">
-      <h1>Welcome to Hakuna</h1>
-    </div>
-
-    <div class="full-width" id="new-user-home-button">
-      <%= link_to "Log in", new_user_session_path, class: 'new-user-home-link' %>
-      <%= link_to "Sign up", new_user_registration_path, class: 'new-user-home-link' %>
-      <a href="" class='new-user-home-link'>About</a>
-    </div>
-
-  </div>
-
-  <% else %>
-
-    <h1>Pages#home</h1>
-    <div>
-      <%= render 'projects/new', user:current_user, project: @project %>
-    </div>
-    <div>
+    <% else %>
+    <div class="main main-signed-in">
       <%= render 'projects/index'%>
     </div>
 
- <% end %>
+    <div>
+
+
+  <% end %>
+ </div>

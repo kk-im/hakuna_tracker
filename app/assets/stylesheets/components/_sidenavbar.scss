@@ -1,0 +1,14 @@
+.sidebar {
+  position: absolute;
+  background-color: #E9E9E9;
+  width: 17vw;
+  padding: 35px;
+
+  h1 {
+    font-weight: 400;
+  }
+
+  > * {
+    width: 100%;
+  }
+}
