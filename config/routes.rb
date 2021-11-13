@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   resources :projects, only: %i[create show destroy update] do
     resources :timelapses, only: [:create]
+    collection do
+      get :clients
+    end
   end
 
   resources :timelapses, only: [:update]
+
 end
