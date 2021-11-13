@@ -2,6 +2,9 @@ require 'faker'
 
 puts 'creating seed'
 
+User.destroy_all
+puts "destroying all users and its dependants projects and timelapses"
+
 4.times do
   @new_user = User.create!(
     email: Faker::Internet.email,
@@ -21,12 +24,14 @@ puts 'creating seed'
     )
     3.times do
       fake_time = DateTime.now + (rand * 1)
-      Timelapse.create!(
+      @new_timelapse = Timelapse.create!(
         start_time: fake_time,
         end_time: fake_time + (rand * 1),
         description: Faker::TvShows::SiliconValley.invention,
         project: @new_project
       )
+      @new_timelapse.update(duration: TimeDifference.between(@new_timelapse.start_time, @new_timelapse.end_time).in_minutes)
+      # new_timelapse.duration = TimeDifference.between(new_timelapse.start_time, new_timelapse.end_time).in_minutes
     end
   end
 end

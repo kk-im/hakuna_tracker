@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :projects, only: %i[create show destroy update] do
+    member do
+      patch :complete
+    end
     resources :timelapses, only: [:create]
   end
 
