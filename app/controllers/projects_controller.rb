@@ -50,6 +50,15 @@ class ProjectsController < ApplicationController
     redirect_to project_path(@project)
   end
 
+  def clients
+    @project = Project.new
+    @clients = Project.where(user: current_user).select(:client).group(:client).count
+  end
+
+  def client_projects
+    @client = 0
+  end
+
   private
 
   def project_params

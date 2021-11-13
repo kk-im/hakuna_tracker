@@ -1,0 +1,31 @@
+
+
+<div class="container">
+<h1 class="dashboard m-5">CLIENTS</h1>
+
+<p class="text-right">Search</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="text-center" scope="col"></th>
+      <th class="text-left" scope="col">Name</th>
+      <th class="text-center" scope="col">Number of Projects</th>
+      <th class="text-center" scope="col">Projects</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% i = 0 %>
+  <% @clients.each do |client, project| %>
+    <tr>
+      <th class="text-center" scope="row"><% i %></th>
+      <td class="text-left"><%= client%> </td>
+      <td class="text-center"> <%= project %> </td>
+      <td class="text-center">See all projects</td>
+    </tr>
+    <% end %>
+    <% i += 1 %>
+  </tbody>
+</table>
+
+</div>

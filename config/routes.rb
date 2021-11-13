@@ -8,7 +8,11 @@ Rails.application.routes.draw do
       patch :complete
     end
     resources :timelapses, only: [:create]
+    collection do
+      get :clients
+    end
   end
 
   resources :timelapses, only: [:update]
+
 end
