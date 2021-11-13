@@ -1,9 +1,12 @@
+<%# Placeholder for the tracker %>
+<%= render 'shared/tracker' %>
+
 <h1 class="dashboard">DASHBOARD</h1>
 
 <div>
 <h3 class="my-4">Due Soon</h3>
   <% @projects.each do |project| %>
-    <% if project.deadline > Date.today %>
+    <% if project.deadline > (Date.today + 7) %>
       <div class="project-card d-flex justify-content-between align-items-center my-3">
         <div class="card-project"><p class="margin-b"><%= project.name %></p></div>
         <div class="card-client"><p class="margin-b"><%= project.client %></p></div>
@@ -18,18 +21,14 @@
 
 <div>
 <h3 class="my-4">Recently Completed</h3>
-  <% @projects.each do |project| %>
-    <% if project.deadline < Date.today %>
-      <div class="project-card d-flex justify-content-between align-items-center my-3">
-        <div class="card-project"><p class="margin-b"><%= project.name %></p></div>
-        <div class="card-client"><p class="margin-b"><%= project.client %></p></div>
-        <div class="card-project deadline"><p class="margin-b"><%= project.deadline %></p></div>
-        <div class="card-project "><p class="margin-b"><%= link_to "Edit" %></p></div>
-        <div class="card-element"><p class="margin-b"><%= link_to "Delete" %></p></div>
-        <div class="card-arrow"><i class="fas fa-caret-right fa-2x btn-play"></i></div>
-      </div>
-    <% end %>
-  <% end %>
+  <% @projects_completed.each do |project|  %>
+    <div class="project-card d-flex justify-content-between align-items-center my-3">
+      <div class="card-project"><p class="margin-b"><%= project.name %></p></div>
+      <div class="card-client"><p class="margin-b"><%= project.client %></p></div>
+      <div class="card-project deadline"><p class="margin-b"><%= project.deadline %></p></div>
+      <div class="card-project "><p class="margin-b"><%= link_to "Edit" %></p></div>
+      <div class="card-element"><p class="margin-b"><%= link_to "Delete" %></p></div>
+      <div class="card-arrow"><i class="fas fa-caret-right fa-2x btn-play"></i></div>
+    </div>
+ <% end %>
 </div>
-
-<%= render 'projects/new', project: @project%>

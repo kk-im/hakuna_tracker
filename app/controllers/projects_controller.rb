@@ -2,11 +2,10 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user = current_user
-    if @project.save!
-      redirect_to root_path
-    else
-      render "new"
-    end
+    redirect_to root_path if @project.save!
+    # else
+    #   render "new"
+    # end
   end
 
   def index
@@ -16,10 +15,14 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @status = @project.completed ? "Complete" : "Incomplete"
+
+    @counter = 1
+    @logs = @project.timelapses
+
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "file_name", template: "projects/project.html.erb"   # Excluding ".pdf" extension.
+        render pdf: "file_name", template: "projects/pdf.html.erb"   # Excluding ".pdf" extension.
       end
     end
   end
@@ -37,6 +40,14 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
+    redirect_to root_path
+  end
+
+  def complete
+    @project = Project.find(params[:id])
+    @project.completed = true
+    flash[:notice] = "The task has been completed"
+    redirect_to project_path(@project)
   end
 
   def clients
