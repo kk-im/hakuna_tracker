@@ -10,7 +10,7 @@
   padding: 35px;
 
   h1 {
-    font-weight: 400;
+    font-weight: 300;
   }
 
   .sidebar-title {
@@ -25,7 +25,6 @@
     margin-bottom: 10px;
     font-size: 1.1em !important;
   }
-
 
   > * {
     width: 100%;
@@ -43,8 +42,68 @@
   }
 }
 
+.last-div {
+  padding-bottom: 35px;
+  border-bottom: 1px solid #000;
+}
+
+.sidebar-modal {
+  border: 1px solid #000;
+  border-radius: 35px;
+  text-align: center;
+  margin-bottom: -30px;
+
+  button {
+    padding: 10px;
+    width: 100%;
+    transition: 0.2s;
+  }
+
+  button:hover {
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 35px;
+  }
+}
+
 .logout {
   img {
     margin-right: 15px;
+  }
+}
+
+// Modal Styles
+
+.modal-content {
+  font-family: $inter;
+  background: #E2E2E2;
+  border-radius: 35px;
+  padding: 15px;
+  text-align: left;
+}
+
+.modal-header {
+  h5 {
+    margin-top: 10px;
+    width: 90%;
+    font-weight: 300;
+    text-align: left;
+  }
+
+  button {
+    width: 10%;
+  }
+}
+
+.modal-footer {
+  input {
+    width: 100%;
+  }
+}
+
+.modal-body form {
+  label {
+    display: none;
   }
 }

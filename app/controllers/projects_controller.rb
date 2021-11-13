@@ -2,11 +2,10 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user = current_user
-    if @project.save!
-      redirect_to root_path
-    else
-      render "new"
-    end
+    redirect_to root_path if @project.save!
+    # else
+    #   render "new"
+    # end
   end
 
   def index
