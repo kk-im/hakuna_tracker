@@ -15,7 +15,10 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @status = @project.completed ? "Complete" : "Incomplete"
-    @timelapses = @project.timelapses
+
+    @counter = 1
+    @logs = @project.timelapses
+
     respond_to do |format|
       format.html
       format.pdf do
@@ -37,6 +40,14 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
+    redirect_to root_path
+  end
+
+  def complete
+    @project = Project.find(params[:id])
+    @project.completed = true
+    flash[:notice] = "The task has been completed"
+    redirect_to project_path(@project)
   end
 
   private
