@@ -6,4 +6,8 @@ class PagesController < ApplicationController
     @projects = Project.where(user: current_user)
   end
 
+  def clients
+    @clients = Project.where(user: current_user).select(:client).group(:client)
+  end
+
 end
