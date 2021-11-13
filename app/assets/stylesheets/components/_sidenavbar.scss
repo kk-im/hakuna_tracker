@@ -42,11 +42,6 @@
   }
 }
 
-.last-div {
-  padding-bottom: 35px;
-  border-bottom: 1px solid #000;
-}
-
 .sidebar-modal {
   border: 1px solid #000;
   border-radius: 35px;
@@ -98,7 +93,17 @@
 
 .modal-footer {
   input {
+    padding: 10px;
     width: 100%;
+    transition: 0.2s;
+    border-radius: 30px;
+    background: transparent;
+  }
+
+  input:hover {
+    background: #000;
+    color: #fff;
+    cursor: pointer;
   }
 }
 

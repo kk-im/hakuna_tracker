@@ -1,9 +1,8 @@
 <nav class="sidebar vh-100">
-
-  <h1>Hakuna</h1>
+  <h1><%= link_to "Hakuna", root_path %></h1>
   <div class="sidebar-section">
     <h4 class="sidebar-title">View</h4>
-    <a href="" class="sidebar-link">Projects</a>
+    <%= link_to "Projects", projects_path, class: 'sidebar-link' %>
     <a href="" class="sidebar-link">Clients</a>
     <a href="" class="sidebar-link">Completed</a>
   </div>
@@ -12,7 +11,7 @@
     <a href="" class="sidebar-link">Reports</a>
     <a href="" class="sidebar-link">Invoices</a>
   </div>
-  <div class="sidebar-section last-div">
+  <div class="sidebar-section">
     <h4 class="sidebar-title">Info</h4>
     <a href="" class="sidebar-link">About</a>
   </div>
