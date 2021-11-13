@@ -5,7 +5,7 @@
   <p>Due date: <%= @project.deadline %></p>
   <p>Rate: $ <%= @project.rate %>/hr</p>
   <ul>
-    <% @timelapses.each do |timelaps|  %>
+    <% @logs.each do |timelaps|  %>
       <li><%= timelaps.description %></li>
     <% end %>
   </ul>

@@ -15,7 +15,6 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @status = @project.completed ? "Complete" : "Incomplete"
-
     @counter = 1
     @logs = @project.timelapses
 
