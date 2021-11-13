@@ -44,7 +44,7 @@ class ProjectsController < ApplicationController
 
   def complete
     @project = Project.find(params[:id])
-    @project.completed = true
+    @project.update(completed: true)
     flash[:notice] = "The task has been completed"
     redirect_to project_path(@project)
   end
