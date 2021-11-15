@@ -1,12 +1,12 @@
 <div>
-  <h1><%= @project.name %></h1>
+  <h2><%= @project.name %></h2>
   <h2><%= @project.client %></h2>
   <p><%= @status %></p>
   <p>Due date: <%= @project.deadline %></p>
   <p>Rate: $ <%= @project.rate %>/hr</p>
-  <ul>
-    <% @logs.each do |timelaps|  %>
-      <li><%= timelaps.description %></li>
-    <% end %>
-  </ul>
+</div>
+
+<div>
+  <%= render 'table', project: @projects %>
+  <p>Total ($) = <%= @project.cost %></p>
 </div>
