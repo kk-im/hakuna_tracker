@@ -22,6 +22,5 @@
   <p>Total ($)</p>
   <p><%= @project.cost %></p>
   <button><%= link_to 'Mark as completed', complete_project_path(@project), method: 'patch' %></button>
-  <button><%= link_to 'Generate invoice' %></button>
-  <%= link_to 'PDF', project_path(@project, format: :pdf), class: "btn btn-danger" %> <%# Boton para PDF by: Mau:)  %>
+  <%= link_to 'Generate invoice', project_path(@project, format: :pdf), class: "btn btn-danger" %> <%# Boton para PDF by: Mau:)  %>
 </div>
