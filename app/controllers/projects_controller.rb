@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @new_project = Project.new
     @project = Project.find(params[:id])
     @status = @project.completed ? "Complete" : "Incomplete"
     @counter = 1
