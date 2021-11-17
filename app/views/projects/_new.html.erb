@@ -1,10 +1,10 @@
 <!-- Button trigger modal -->
-<button type="button" data-toggle="modal" data-target="#exampleModalCenter">
+<button type="button" data-toggle="modal" data-target="#newModalCenter">
  + Add Project
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="newModalCenter" tabindex="-1" role="dialog" aria-labelledby="newModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -18,7 +18,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for(project) do |f| %>
+        <%= simple_form_for(new_project) do |f| %>
           <%= f.input :name, :placeholder => "Project Name*" %>
           <%= f.input :client, :placeholder => 'Client*'  %>
           <%= f.input :expected_time, :placeholder => "Estimated Time (Hours)", html5: true, input_html: { min: 1 }  %>

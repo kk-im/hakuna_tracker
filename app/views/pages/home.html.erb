@@ -3,7 +3,7 @@
   <% unless user_signed_in? %>
     <div class="main new-user-home overflow-hidden">
       <div class="full-width">
-        <div class="triangle"></div>
+      <div class="triangle"></div>
       </div>
 
       <div id="new-user-header" class="full-width">
@@ -19,6 +19,7 @@
 
     <% else %>
     <div class="main main-signed-in">
+      <%= render 'projects/timetracker' %>
       <%= render 'projects/index' %>
     </div>
 

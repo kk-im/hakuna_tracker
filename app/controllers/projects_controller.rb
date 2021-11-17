@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @new_project = Project.new
     @project = Project.find(params[:id])
     @status = @project.completed ? "Complete" : "Incomplete"
     @counter = 1
@@ -50,12 +51,14 @@ class ProjectsController < ApplicationController
   end
 
   def clients
-    @project = Project.new
+    @new_project = Project.new
     @clients = Project.where(user: current_user).select(:client).group(:client).count
   end
 
   def client_projects
-    @client = 0
+    @new_project = Project.new
+    @client_projects = Project.where(user: current_user)
+    @projects_of_client = @client_projects.select { |project| project.client == params[:client] }
   end
 
   private

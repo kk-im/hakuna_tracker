@@ -12,6 +12,22 @@
   border-bottom: 100px solid $orange;
 }
 
+.section-title {
+  text-transform: uppercase;
+  color: $orange;
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
+// Registration forms
+.registration-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+
+}
+
 #new-user-header {
   padding-top: 5vh;
   height: 65vh;
