@@ -13,7 +13,7 @@
   <div class="project-show project-details">
     <p><span class="gray">Due date: </span><%= @project.deadline %></p>
     <p><span class="gray">Rate: </span>$<%= @project.rate %>/hour</p>
-    <button class="project-show-button"><%= render 'edit', project: @project %></button>
+    <%= render 'edit', project: @project %>
     <button><%= link_to 'Delete', project_path, method: 'delete', class: 'project-show-button' %></button>
   </div>
 

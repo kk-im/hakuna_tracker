@@ -15,4 +15,6 @@ Rails.application.routes.draw do
 
   resources :timelapses, only: [:update]
   get 'pages/all_projects', to: "pages#all_projects", as: :all_projects
+  get "projects/clients/:client", to: "projects#client_projects", as: :client_projects
+
 end

@@ -14,5 +14,6 @@ class PagesController < ApplicationController
       @project = Project.new
       @projects = Project.all
     end
+
   end
 end
