@@ -55,7 +55,9 @@ class ProjectsController < ApplicationController
   end
 
   def client_projects
-    @client = 0
+    @project = Project.new
+    @client_projects = Project.where(user: current_user)
+    @projects_of_client = @client_projects.select { |project| project.client == params[:client] }
   end
 
   private
