@@ -1,5 +1,3 @@
-
-
 <div class="container">
 <h1 class="dashboard m-5">CLIENTS</h1>
 
@@ -21,7 +19,7 @@
       <th class="text-center" scope="row"><% i %></th>
       <td class="text-left"><%= client%> </td>
       <td class="text-center"> <%= project %> </td>
-      <td class="text-center">See all projects</td>
+      <td class="text-center"> <%= link_to "See all projects", client_projects_path(client) %></td>
     </tr>
     <% end %>
     <% i += 1 %>
