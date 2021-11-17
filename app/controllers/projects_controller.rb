@@ -51,12 +51,12 @@ class ProjectsController < ApplicationController
   end
 
   def clients
-    @project = Project.new
+    @new_project = Project.new
     @clients = Project.where(user: current_user).select(:client).group(:client).count
   end
 
   def client_projects
-    @project = Project.new
+    @new_project = Project.new
     @client_projects = Project.where(user: current_user)
     @projects_of_client = @client_projects.select { |project| project.client == params[:client] }
   end
