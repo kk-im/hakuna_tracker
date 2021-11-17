@@ -1,0 +1,36 @@
+.project-show {
+  display: flex;
+  margin-bottom: 20px;
+
+  h1 {
+    color: $orange;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+
+  .project-name {
+    margin-right: 50px;
+  }
+
+  .project-show-button {
+    padding: 10px 20px;
+    border: 1px solid #000;
+    border-radius: 40px;
+  }
+
+  .gray {
+    color: $medium-gray;
+  }
+}
+
+.project-details {
+  margin-top: 20px;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.bottom-border {
+  border-bottom: 1px solid #000;
+}

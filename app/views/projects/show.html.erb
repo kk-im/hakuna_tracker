@@ -1,13 +1,23 @@
 <div class='main main-signed-in'>
-  <h1>PROJECTS</h1>
-  <h2><%= @project.name %></h2>
-  <h2><%= @project.client %></h2>
-  <p><%= @status %></p>
-  <p>Due date: <%= @project.deadline %></p>
-  <p>Rate: $ <%= @project.rate %>/hr</p>
-  <%= render 'edit', project: @project %>
-  <button><%= link_to 'Delete', project_path, method: 'delete'%></button>
-  <h2>Log</h2>
+  <div class="project-show">
+    <h1 class="sidebar-title">PROJECTS</h1>
+  </div>
+  <div class="project-show">
+    <h2 class="project-name"><%= @project.name %></h2>
+    <h2 class="gray"><%= @project.client %></h2>
+  </div>
+  <div class="project-show">
+    <a class="project-show-button"><%= @status %></a>
+  </div>
+
+  <div class="project-show project-details">
+    <p><span class="gray">Due date: </span><%= @project.deadline %></p>
+    <p><span class="gray">Rate: </span>$<%= @project.rate %>/hour</p>
+    <button class="project-show-button"><%= render 'edit', project: @project %></button>
+    <button><%= link_to 'Delete', project_path, method: 'delete', class: 'project-show-button' %></button>
+  </div>
+
+  <h2 class="project-name">Log</h2>
   <%= render 'table', project: @projects %>
   <p>Total ($)</p>
   <p><%= @project.cost %></p>
