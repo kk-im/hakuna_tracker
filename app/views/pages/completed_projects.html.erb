@@ -1,0 +1,19 @@
+<% if @completed_projects %>
+<div class="main main-signed-in">
+<h3 class="my-4">Completed projects</h3>
+  <% @completed_projects.each do |project|  %>
+    <div class="project-card d-flex justify-content-between align-items-center my-3">
+      <div class="card-project"><p class="margin-b"><%= link_to project.name, project_path(project) %></p></div>
+      <div class="card-client"><p class="margin-b"><%= project.client %></p></div>
+      <div class="card-project deadline"><p class="margin-b"><%= project.deadline %></p></div>
+      <div class="card-project "><p class="margin-b"><%= link_to "Edit", project_path(project.id), method: 'edit' %></p></div>
+      <div class="card-element"><p class="margin-b"><%= link_to "Delete", project_path(project.id), method: 'delete' %></p></div>
+      <div class="card-arrow"><i class="fas fa-caret-right fa-2x btn-play"></i></div>
+    </div>
+ <% end %>
+</div>
+ <% else %>
+ <div class="main main-signed-in">
+  <h3 class="my-4">You have not completed projects yet.</h3>
+ </div>
+<% end %>
