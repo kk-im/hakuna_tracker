@@ -66,3 +66,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'json', '~> 2.6', '>= 2.6.1'
+gem 'open-uri'
