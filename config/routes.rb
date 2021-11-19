@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   end
 
   resources :timelapses, only: [:update]
-  get 'pages/all_projects', to: "pages#all_projects", as: :all_projects
-  get "projects/clients/:client", to: "projects#client_projects", as: :client_projects
+  get 'pages/all_projects', to: 'pages#all_projects', as: :all_projects
+  get 'projects/clients/:client', to: 'projects#client_projects', as: :client_projects
+  get 'pages/completed_projects', to: 'pages#completed_projects', as: :completed_projects
 
 end
