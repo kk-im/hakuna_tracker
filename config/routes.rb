@@ -7,13 +7,12 @@ Rails.application.routes.draw do
     member do
       patch :complete
     end
-    resources :timelapses, only: [:create]
     collection do
       get :clients
     end
   end
 
-  resources :timelapses, only: [:update]
+  resources :timelapses, only: [:update, :create]
   get 'pages/all_projects', to: "pages#all_projects", as: :all_projects
   get "projects/clients/:client", to: "projects#client_projects", as: :client_projects
 
