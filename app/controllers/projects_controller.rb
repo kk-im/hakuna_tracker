@@ -1,3 +1,5 @@
+require 'json'
+require 'open-uri'
 class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
@@ -19,12 +21,19 @@ class ProjectsController < ApplicationController
     @counter = 1
     @logs = @project.timelapses
 
+    url = 'https://api.imgflip.com/get_memes'
+    memes_url = URI.open(url).read
+    @memes = JSON.parse(memes_url)
+    @meme_hash = @memes['data']['memes'].sample
+    @image_meme = @meme_hash['url']
+
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "file_name", template: "projects/pdf.html.erb"   # Excluding ".pdf" extension.
+        render pdf: "#{@project.name}", template: "projects/pdf.html.erb"   # Excluding ".pdf" extension.
       end
     end
+
   end
 
   def edit

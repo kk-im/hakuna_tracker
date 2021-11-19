@@ -5,8 +5,8 @@ class PagesController < ApplicationController
     if user_signed_in?
       @new_project = Project.new
       @projects = Project.where("user_id = ? AND completed = ? AND deadline > ?", current_user.id, false, (Date.today + 7))
-      @projects_completed = Project.where(user: current_user, completed: true).order(updated_at: :desc).limit(5)
       @timelapse = Timelapse.new
+      @projects_recently_completed = Project.where(user: current_user, completed: true).order(updated_at: :desc).limit(5)
     end
   end
 
@@ -15,6 +15,10 @@ class PagesController < ApplicationController
       @new_project = Project.new
       @projects = Project.all
     end
+  end
 
+  def completed_projects
+    @new_project = Project.new
+    @projects_recently_completed = Project.where(user: current_user, completed: true).order(updated_at: :desc)
   end
 end

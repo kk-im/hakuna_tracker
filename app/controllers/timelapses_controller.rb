@@ -6,7 +6,6 @@ class TimelapsesController < ApplicationController
     @timelapse.project = @project
     @timelapse.start_time = Time.now
     @timelapse.save
-    # return something for the frontend
   end
 
   def update
@@ -15,8 +14,7 @@ class TimelapsesController < ApplicationController
     @timelapse.end_time = Time.now
     @timelapse.duration = @timelapse.end_time - @timelapse.start_time
     @timelapse.save
-    @timelapse.project.cost += @timelapse.duration * @timelapse.project.rate
-    # return something for the frontend
+    @timelapse.project.cost += @timelapse.duration / 60 * @timelapse.project.rate
   end
 end
 

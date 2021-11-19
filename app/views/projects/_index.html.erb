@@ -19,7 +19,7 @@
 
 <div>
 <h3 class="my-4">Recently Completed</h3>
-  <% @projects_completed.each do |project|  %>
+  <% @projects_recently_completed.each do |project|  %>
     <div class="project-card d-flex justify-content-between align-items-center my-3">
       <div class="card-project"><p class="margin-b"><%= link_to project.name, project_path(project) %></p></div>
       <div class="card-client"><p class="margin-b"><%= project.client %></p></div>
