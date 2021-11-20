@@ -41,7 +41,7 @@
   z-index: 3;
 
   .logo img {
-    height: 75px;
+    height: 80px;
   }
 }
 
@@ -54,6 +54,11 @@
 
 .header-links a {
   margin: 0 30px;
+
+  &:hover {
+    border-bottom: 1px solid #000;
+    padding-bottom: 7px;
+  }
 }
 
 .hero {
@@ -115,19 +120,27 @@
 }
 
 .new-user-home-link {
-  background: $brown;
-  border-radius: 50px;
-  text-align: center;
+  transition: 0.2s;
   padding: 10px 30px;
-  color: #fff;
 
   &:hover {
-    background: #7E653F;
+    background: $brown;
+    border-radius: 50px;
+    text-align: center;
+    color: #fff;
     cursor: pointer;
-    color: inherit;
   }
 }
 
 .hero-link {
-  padding: 5px;
+  background: $brown;
+  border-radius: 50px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    transform:scale(1.1);
+  }
 }
