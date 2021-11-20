@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = Project.all
+    @projects = Project.where(user: current_user)
   end
 
   def show
@@ -68,6 +68,11 @@ class ProjectsController < ApplicationController
     @new_project = Project.new
     @client_projects = Project.where(user: current_user)
     @projects_of_client = @client_projects.select { |project| project.client == params[:client] }
+  end
+
+  def invoices
+    @new_project = Project.new
+    @projects = Project.where(user: current_user, completed: true)
   end
 
   private

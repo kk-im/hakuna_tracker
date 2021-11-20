@@ -13,12 +13,12 @@ class PagesController < ApplicationController
   def all_projects
     if user_signed_in?
       @new_project = Project.new
-      @projects = Project.all
+      @projects = Project.where(user: current_user)
     end
   end
 
   def completed_projects
     @new_project = Project.new
-    @projects_recently_completed = Project.where(user: current_user, completed: true).order(updated_at: :desc)
+    @completed_projects = Project.where(user: current_user, completed: true).order(updated_at: :desc)
   end
 end
