@@ -1,31 +1,11 @@
 // Specific CSS for your home-page
 
-.full-width {
-  width: 100%;
-}
-
-.triangle {
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 100px solid $orange;
-}
-
-.section-title {
-  text-transform: uppercase;
-  color: $orange;
-  font-weight: 400;
-  margin-bottom: 40px;
-}
-
 // Registration forms
 .registration-container {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
-
 }
 
 #new-user-header {
@@ -38,20 +18,129 @@
   }
 }
 
-#new-user-home-button {
-  display: flex;
-  justify-content: space-between;
+// Styles for homepage when user is not signed in
+.new-user-home {
+  background-color: $dark-orange;
 }
-.new-user-home-link {
-  border: 1px solid #000;
-  border-radius: 50px;
-  width: 31%;
-  text-align: center;
-  font-size: 3rem;
-  padding: 10px 75px;
+
+.new-user-img {
+  background-image: url(hero-shape.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+}
+
+.home-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5vh;
+  font-size: 1.25em;
+  z-index: 3;
+
+  .logo img {
+    height: 80px;
+  }
+}
+
+.home-header,
+.hero {
+  padding: 50px;
+  position: absolute;
+  width: 100vw;
+}
+
+.header-links a {
+  margin: 0 30px;
 
   &:hover {
-    background: $orange;
+    border-bottom: 1px solid #000;
+    padding-bottom: 7px;
+  }
+}
+
+.hero {
+  padding-top: 7.5vh;
+  height: 100%;
+
+  .hero-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+  }
+}
+
+.hero-content {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: column;
+
+    h2 {
+      font-size: 5rem !important;
+    }
+
+    h4 {
+      font-size: 2rem;
+      margin-bottom: 75px;
+    }
+
+    h2, h4 {
+      font-weight: 300;
+    }
+
+    a {
+      width: 300px;
+      font-size: 1.25em;
+      padding: 15px;
+    }
+
+    > * {
+      margin-bottom: 20px;
+    }
+  }
+
+.hero-right {
+    background-image: url(hero.gif);
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+.header-authentication-links {
+
+  a:first-of-type {
+    margin-right: 30px;
+  }
+
+}
+
+.new-user-home-link {
+  transition: 0.2s;
+  padding: 10px 30px;
+
+  &:hover {
+    background: $brown;
+    border-radius: 50px;
+    text-align: center;
+    color: #fff;
     cursor: pointer;
+  }
+}
+
+.hero-link {
+  background: $brown;
+  border-radius: 50px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    transform:scale(1.1);
   }
 }
