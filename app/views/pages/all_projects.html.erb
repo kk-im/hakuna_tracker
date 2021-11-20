@@ -21,7 +21,7 @@
           <div class="card-project"><p class="margin-b"><%= link_to project.name, project_path(project) %></p></div>
           <div class="card-client"><p class="margin-b"><%= project.client %></p></div>
           <div class="card-project deadline"><p class="margin-b"><%= project.deadline %></p></div>
-          <div class="card-project"><p class="margin-b"><%= render 'projects/edit', project: project %></div>
+          <div class="card-element"><p class="margin-b"><%= render 'projects/edit', project: project %></div>
           <div class="card-element"><p class="margin-b"><%= link_to "Delete", project_path(project), method: 'delete' %></p></div>
           <div class="card-arrow"><i class="fas fa-caret-right fa-2x btn-play"></i></div>
         </div>

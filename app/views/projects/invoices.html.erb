@@ -1,0 +1,17 @@
+<div class="main main-signed-in">
+
+  <h1 class="page-title">Invoices</h1>
+
+  <div>
+    <% @projects.each do |project| %>
+        <div class="project-card d-flex justify-content-between align-items-center my-3">
+          <div class="card-project"><p class="margin-b"><%= link_to project.name, project_path(project) %></p></div>
+          <div class="card-client"><p class="margin-b"><%= project.client %></p></div>
+          <div class="card-element"><p class="margin-b">$<%= project.cost %></p></div>
+          <%= link_to 'Download invoice', project_path(project, format: :pdf), class: "card-element", target: :_blank %>
+        </div>
+    <% end %>
+  </div>
+
+
+</div>
