@@ -1,6 +1,6 @@
+
 class TimelapsesController < ApplicationController
   def create
-    raise
     @timelapse = Timelapse.new
     @project = Project.find(params[:project_id])
     @timelapse.project = @project
