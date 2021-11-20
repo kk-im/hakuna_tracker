@@ -4,11 +4,17 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user = current_user
+    # @project.sortable = current_user.projects.count + 1
     redirect_to root_path if @project.save!
     # else
     #   render "new"
     # end
   end
+
+  # def sort()
+  # son parámetros en params: old_index, new_index
+  #lo voy a obtener del data-set del item  @project = Project.find(params[:id])
+  # end
 
   def index
     @projects = Project.where(user: current_user)
@@ -43,7 +49,9 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     @project.update(project_params)
-    redirect_to project_path(@project)
+    # raise
+    # redirect_to project_path(@project)
+    redirect_to(session["return_to_#{@project.id}"] + "#project-#{@project.id}")
   end
 
   def destroy
@@ -61,7 +69,11 @@ class ProjectsController < ApplicationController
 
   def clients
     @new_project = Project.new
-    @clients = Project.where(user: current_user).select(:client).group(:client).count
+    if params[:query].present?
+      @clients = Project.where("user_id = ? AND client @@ ?", current_user.id, params[:query]).select(:client).group(:client).count
+    else
+      @clients = Project.where(user: current_user).select(:client).group(:client).count
+    end
   end
 
   def client_projects
