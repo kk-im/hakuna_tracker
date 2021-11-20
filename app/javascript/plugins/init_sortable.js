@@ -5,7 +5,7 @@ const initSortable = () => {
   if (projects){
     Sortable.create(projects, {
       ghostClass: "ghost",
-      animation: 150,
+      animation: 300,
       onEnd: (event) => {
         // debugger;
         alert(`${event.item.dataset.id} moved to ${event.from}`);

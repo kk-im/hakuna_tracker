@@ -4,17 +4,23 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user = current_user
-    # @project.sortable = current_user.projects.count + 1
+    @project.priority = current_user.projects.count + 1
     redirect_to root_path if @project.save!
     # else
     #   render "new"
     # end
   end
 
-  # def sort()
-  # son parámetros en params: old_index, new_index
-  #lo voy a obtener del data-set del item  @project = Project.find(params[:id])
-  # end
+  # PSEUDOCODE TO PERSIST PRIORITY (important to run db:migrate & db:seed)
+  # new migration for Project model with a priority attribute :integer
+  # when creating a project asign @project.priority = current_user.projects.count + 1
+  # the all_proyects list should be ordered by priority :asc
+  # with js-stimulus replace the old index with the new one by:
+  #   element.priority = new_priority
+  #   projects_that_change = projects where priority < new_priority
+  #   projects_that_change.forEach |project| do project.priority -= 1
+  # def sort() son parametros en params: old_index, new_index
+  # el project lo voy a obtener del data-set del item
 
   def index
     @projects = Project.all
@@ -69,11 +75,7 @@ class ProjectsController < ApplicationController
 
   def clients
     @new_project = Project.new
-    if params[:query].present?
-      @clients = Project.where("user_id = ? AND client @@ ?", current_user.id, params[:query]).select(:client).group(:client).count
-    else
-      @clients = Project.where(user: current_user).select(:client).group(:client).count
-    end
+    @clients = Project.where(user: current_user).select(:client).group(:client).count
   end
 
   def client_projects
