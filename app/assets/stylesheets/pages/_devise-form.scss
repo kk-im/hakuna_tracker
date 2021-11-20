@@ -8,6 +8,42 @@
   }
 }
 
+.authen-main {
+  position: relative;
+
+  .authen-header {
+    padding: 50px;
+  }
+}
+
+.authen-form-container {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  background-image: url(authen-blob.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 80vw;
+  margin: -125px auto 0 auto;
+  padding: 70px 50px;
+}
+
+.authen-form {
+  width: 50%;
+  margin: auto;
+
+  > * {
+    margin-bottom: 30px;
+  }
+}
+
+.section-title {
+  font-size: 2em;
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+
 // General form
 .form-control {
   background-color: transparent;
@@ -15,13 +51,13 @@
   padding: 30px;
   border-radius: 50px;
 
-  ::placeholder {
-    color: #000;
+  &::placeholder {
+    color: #000 !important;
   }
 
   &:focus {
     background-color: transparent;
-    border-color: inherit;
+    border-color: #fff;
     -webkit-box-shadow: none;
     box-shadow: none;
   }

@@ -4,28 +4,12 @@
   width: 100%;
 }
 
-.triangle {
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 100px solid $orange;
-}
-
-.section-title {
-  text-transform: uppercase;
-  color: $orange;
-  font-weight: 400;
-  margin-bottom: 40px;
-}
-
 // Registration forms
 .registration-container {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
-
 }
 
 #new-user-header {
@@ -38,17 +22,59 @@
   }
 }
 
-#new-user-home-button {
-  display: flex;
-  justify-content: space-between;
+// Styles for homepage when user is not signed in
+.new-user-home {
+  background-color: $dark-orange;
 }
+
+.new-user-img {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+.home-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5vh;
+  font-size: 1.5em;
+
+  .logo img {
+    height: 75px;
+  }
+}
+
+.home-header,
+.hero {
+  z-index: 1;
+  position: absolute;
+  width: 100vw;
+}
+
+.header-links a {
+  margin: 0 30px;
+}
+
+.hero {
+  margin-top: 7.5vh;
+}
+
+.header-authentication-links {
+
+  a:first-of-type {
+    margin-right: 30px;
+  }
+  a {
+    padding: 5px 15px;
+  }
+}
+
 .new-user-home-link {
   border: 1px solid #000;
   border-radius: 50px;
-  width: 31%;
+  width: 100%;
   text-align: center;
-  font-size: 3rem;
-  padding: 10px 75px;
 
   &:hover {
     background: $orange;

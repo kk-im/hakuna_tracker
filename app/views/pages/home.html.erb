@@ -1,20 +1,50 @@
  <%# This is the code for when a new user comes onto the app %>
  <div class="vh-100">
   <% unless user_signed_in? %>
+    <%# This is the container for the whole homepage %>
     <div class="main new-user-home overflow-hidden">
-      <div class="full-width">
-      <div class="triangle"></div>
+
+      <div class="new-user-img">
+        <img src="/assets/images/hero-shape.png" alt="">
+      </div>
+      <div class="home-header">
+        <%# Here is the main Hakuna logo %>
+        <div class="logo">
+          <img src="/assets/logo.svg" alt="">
+        </div>
+
+        <%# Here are individual pages showing descriptions of the app %>
+        <div class="header-links">
+          <a href="">Discover</a>
+          <a href="">Features</a>
+          <a href="">Pricing</a>
+        </div>
+
+        <%# Here are links where the user can log in %>
+        <div class=header-authentication-links>
+          <%= link_to "Sign In", new_user_session_path, class: 'new-user-home-link' %>
+          <%= link_to "Get Started", new_user_registration_path, class: 'new-user-home-link' %>
+        </div>
       </div>
 
-      <div id="new-user-header" class="full-width">
-        <h1>Welcome to Hakuna</h1>
+      <%# Here the hero section begins %>
+      <div class="hero">
+
+        <div class="hero-container">
+          <div class="hero-content hero-left">
+            <h2>No worries,<br>For the rest of your freelancing days</h2>
+            <h4>Hakuna’s user-friendly interface and accurate time-tracking takes the ‘wo’ out of work.
+                Focus on the things that matter to you most.</h4>
+            <%= link_to "Get started", new_user_registration_path, class: 'new-user-home-link' %>
+          </div>
+
+          <div class="hero-content hero-left">
+            <img src="/assets/images/hero.gif" alt="">
+          </div>
+        </div>
+
       </div>
 
-      <div class="full-width" id="new-user-home-button">
-        <%= link_to "Log in", new_user_session_path, class: 'new-user-home-link' %>
-        <%= link_to "Sign up", new_user_registration_path, class: 'new-user-home-link' %>
-        <a href="" class='new-user-home-link'>About</a>
-      </div>
     </div>
 
     <% else %>
