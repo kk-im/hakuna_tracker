@@ -1,6 +1,17 @@
 <%# Placeholder for the tracker %>
 <%= render 'shared/tracker' %>
 
+<div class="">
+  <%= form_tag root_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "",
+      placeholder: "Find a project"
+    %>
+    <%= submit_tag "Search", class: "btn" %>
+  <% end %>
+</div>
+
 <h1 class="dashboard">DASHBOARD</h1>
 
 <div>
