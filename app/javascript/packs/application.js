@@ -27,6 +27,13 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { initSortable } from '../plugins/init_sortable';
+import { Application } from "stimulus";
+import { definitionsFromContext } from "stimulus/webpack-helpers";
+
+// Stimulus starter
+const application = Application.start()
+const context = require.context("../controllers", true, /\.js$/)
+application.load(definitionsFromContext(context))
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:

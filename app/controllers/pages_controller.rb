@@ -37,7 +37,7 @@ class PagesController < ApplicationController
     if params[:query].present?
       @projects = Project.where("name @@ ?", params[:query])
     else
-      @projects = Project.all
+      @projects = Project.all.order(priority: :asc)
     end
   end
 
