@@ -3,33 +3,41 @@
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  background-color: #E9E9E9;
+  background-image: url(sidebar.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: $inter;
-  font-weight: 400;
-  width: 17vw;
-  padding: 35px;
-
-  h1 {
-    font-weight: 300;
-  }
+  font-weight: 300 !important;
+  width: 18vw;
+  padding: 30px;
+  text-align: left;
 
   .sidebar-title {
-    color: $orange;
-    font-size: 0.85em;
+    color: $gray;
+    font-size: 0.8em;
     text-transform: uppercase;
-    margin-bottom: 30px;
-  }
-
-  .sidebar-link {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 1.1em !important;
+    padding-bottom: 10px;
   }
 
   > * {
     width: 100%;
   }
 }
+
+.sidebar-link {
+  display: block;
+  padding: 15px 0;
+  font-size: 1.2em !important;
+}
+
+ .sidebar-logo {
+  margin: -15px;
+
+  img {
+    width: 100%;
+  }
+
+  }
 
 .sidebar-section {
 
@@ -104,11 +112,5 @@
     background: #000;
     color: #fff;
     cursor: pointer;
-  }
-}
-
-.modal-body form {
-  label {
-    // display: none;
   }
 }
