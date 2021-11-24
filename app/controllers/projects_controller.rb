@@ -53,11 +53,11 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    # raise
     @project = Project.find(params[:id])
     @project.update(project_params)
-    # raise
     # redirect_to project_path(@project)
-    redirect_to(session["return_to_#{@project.id}"] + "#project-#{@project.id}")
+    redirect_to(params[:return_to] + "#project-#{@project.id}")
   end
 
   def destroy

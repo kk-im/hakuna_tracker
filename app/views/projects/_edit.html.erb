@@ -14,9 +14,10 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <%= simple_form_for(project) do |f| %>
+      <%# <%= simple_form_for(project) do |f| %>
+      <%= simple_form_for(project, url: project_path(project, return_to: request.fullpath.split("#").first)) do |f| %>
         <div class="modal-body">
-          <% session["return_to_#{project.id}"] = request.fullpath.split("#").first %>
+          <%# <% session["return_to_#{project.id}"] = request.fullpath.split("#").first %>
           <%= f.input :name, :label => "Name it"  %>
           <%= f.input :client  %>
           <%= f.input :expected_time, :label => "How many hours will it take?", html5: true, input_html: { min: 1 }  %>
