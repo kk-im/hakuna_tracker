@@ -19,8 +19,11 @@ class ProjectsController < ApplicationController
   #   element.priority = new_priority
   #   projects_that_change = projects where priority < new_priority
   #   projects_that_change.forEach |project| do project.priority -= 1
-  # def sort() son parametros en params: old_index, new_index
-  # el project lo voy a obtener del data-set del item
+  def sort
+    params["oldPriority"]
+    params["newPriority"]
+    params["elementId"]
+  end
 
   def index
     @projects = Project.where(user: current_user)
