@@ -3,9 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  background-image: url(sidebar.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: $taupe-dark;
   font-family: $inter;
   font-weight: 300 !important;
   width: 18vw;
@@ -28,6 +26,10 @@
   display: block;
   padding: 15px 0;
   font-size: 1.2em !important;
+
+  &:hover {
+    color: $taupe;
+  }
 }
 
  .sidebar-logo {
