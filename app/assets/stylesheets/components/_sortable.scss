@@ -1,0 +1,12 @@
+#projects div {
+  cursor: grab;
+}
+
+#projects div:active {
+  cursor: grabbing;
+}
+
+#projects div.ghost {
+  filter: grayscale(1);
+  opacity: 0.5;
+}

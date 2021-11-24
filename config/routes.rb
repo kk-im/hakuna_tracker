@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     end
     collection do
       get :clients
+      get :invoices
     end
   end
 
@@ -16,5 +17,6 @@ Rails.application.routes.draw do
   get 'pages/all_projects', to: 'pages#all_projects', as: :all_projects
   get 'projects/clients/:client', to: 'projects#client_projects', as: :client_projects
   get 'pages/completed_projects', to: 'pages#completed_projects', as: :completed_projects
+  # get 'projects/invoices', to: 'projects#invoices', as: :invoices
 
 end

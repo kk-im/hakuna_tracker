@@ -1,11 +1,11 @@
 <%# Toda esta vista tiene código copiado, no revisado %>
 <!-- Button trigger modal -->
-<button type="button" class="project-show-button" data-toggle="modal" data-target="#editModalCenter">
+<button type="button" class="project-show-button" data-toggle="modal" data-target="#editModalCenter<%=project.id%>">
   Edit
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="editModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="editModalCenter<%=project.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -14,18 +14,19 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <%= simple_form_for(project) do |f| %>
+      <%= simple_form_for(project) do |f| %>
+        <div class="modal-body">
+          <% session["return_to_#{project.id}"] = request.fullpath.split("#").first %>
           <%= f.input :name, :label => "Name it"  %>
           <%= f.input :client  %>
           <%= f.input :expected_time, :label => "How many hours will it take?", html5: true, input_html: { min: 1 }  %>
           <%= f.input :deadline, html5: true %>
           <%= f.input :rate, :label => "Rate ($/hr)" %>
-      </div>
-      <div class="modal-footer">
-        <%= f.button :submit, "Save", class:"btn btn-primary" %>
-      </div>
-        <% end %>
+        </div>
+        <div class="modal-footer">
+          <%= f.button :submit, "Save", class:"btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

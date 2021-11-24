@@ -4,18 +4,19 @@
 @import "show";
 
 body {
-  background-color: #E2E2E2;
+  background-color: $taupe;
   font-family: $inter;
 }
 
-.main {
-  padding: 50px;
-  max-height: 100vh;
+.main,
+.authen-main {
+  height: 100vh;
   font-family: $inter;
   font-weight: 300;
 }
 
 .main-signed-in {
+  padding: 50px;
   margin-left: 17vw;
   overflow: auto !important;
 }

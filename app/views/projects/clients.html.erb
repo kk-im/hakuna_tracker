@@ -1,9 +1,19 @@
 <div class="main main-signed-in">
 
+<div class="d-flex justify-content-end ">
+  <div class="search-container">
+    <%= form_tag clients_projects_path, method: :get, class: "searchBox" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "searchInput",
+        placeholder: "Find a project"
+      %>
+      <%= submit_tag "🔎 Search", class: "searchButton" %>
+    <% end %>
+  </div>
+</div>
+
 <h1 class="dashboard m-5">CLIENTS</h1>
-
-<p class="text-right">Search</p>
-
 <table class="table table-striped">
   <thead>
     <tr>

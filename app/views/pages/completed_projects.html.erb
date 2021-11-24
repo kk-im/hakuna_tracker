@@ -1,5 +1,17 @@
 <% if @completed_projects %>
 <div class="main main-signed-in">
+  <div class="d-flex justify-content-end ">
+    <div class="search-container">
+      <%= form_tag completed_projects_path, method: :get, class: "searchBox" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "searchInput",
+          placeholder: "Find a project"
+        %>
+        <%= submit_tag "🔎 Search", class: "searchButton" %>
+      <% end %>
+    </div>
+  </div>
 <h3 class="my-4">Completed projects</h3>
   <% @completed_projects.each do |project|  %>
     <div class="project-card d-flex justify-content-between align-items-center my-3">

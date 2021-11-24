@@ -1,5 +1,7 @@
 <nav class="sidebar vh-100">
-  <h1><%= link_to "Hakuna", root_path %></h1>
+
+
+  <%= link_to image_tag("logo.svg"), root_path, class: "sidebar-logo" %>
   <div class="sidebar-section">
     <h4 class="sidebar-title">View</h4>
     <%= link_to "Projects", all_projects_path, class: 'sidebar-link' %>
@@ -9,7 +11,7 @@
   <div class="sidebar-section">
     <h4 class="sidebar-title">Report</h4>
     <a href="" class="sidebar-link">Reports</a>
-    <a href="" class="sidebar-link">Invoices</a>
+    <%= link_to "Invoices", invoices_projects_path, class: 'sidebar-link' %>
   </div>
   <div class="sidebar-section">
     <h4 class="sidebar-title">Info</h4>

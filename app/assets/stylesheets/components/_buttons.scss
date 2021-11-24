@@ -1,12 +1,16 @@
 .btn-login {
   color: white;
-  background-color: black;
-  border: 1px solid #4A4A4A;
-  padding: 8px 24px;
+  background-color: $brown;
+  padding: 10px 30px;
+  font-size: 1.1em;
   border-radius: 50px;
-  font-weight: lighter;
-  transition: opacity 0.3s ease;
-  margin-bottom: 10px;
+  font-weight: 300;
+  transition: 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+    color: #fff;
+  }
 }
 
 .btn-play {
