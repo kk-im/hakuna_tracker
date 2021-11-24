@@ -75,7 +75,11 @@ class ProjectsController < ApplicationController
 
   def clients
     @new_project = Project.new
-    @clients = Project.where(user: current_user).select(:client).group(:client).count
+    if params[:query].present?
+      @clients = Project.where(user: current_user, client: params[:query]).select(:client).group(:client).count
+    else
+      @clients = Project.where(user: current_user).select(:client).group(:client).count
+    end
   end
 
   def client_projects
