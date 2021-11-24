@@ -27,12 +27,10 @@ import "bootstrap";
 
 // Internal imports, e.g:
 
-import { timing } from '../plugins/init_timer';
 
-document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  timing();
 
+import { timing } from '../plugins/init_timer';
 import { initSortable } from '../plugins/init_sortable';
 import { Application } from "stimulus";
 import { definitionsFromContext } from "stimulus/webpack-helpers";
@@ -45,4 +43,5 @@ application.load(definitionsFromContext(context))
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initSortable();
+  timing();
 });
