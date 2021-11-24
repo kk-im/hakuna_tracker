@@ -32,8 +32,8 @@ class ProjectsController < ApplicationController
       format.pdf do
         render pdf: "#{@project.name}", template: "projects/pdf.html.erb"   # Excluding ".pdf" extension.
       end
+      UserMailer.welcome
     end
-
   end
 
   def edit
