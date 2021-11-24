@@ -31,6 +31,23 @@
   font-size: 1.3rem;
 }
 
+// headers for above project cards
+.project-headers {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 1fr 1fr 1fr;
+  margin: 10px 15px;
+}
+
 .bottom-border {
   border-bottom: 1px solid #000;
+}
+
+.all-projects-header {
+display: flex;
+justify-content: space-between;
+}
+
+.page-title {
+  font-weight: 300;
+  font-size: 2em;
 }

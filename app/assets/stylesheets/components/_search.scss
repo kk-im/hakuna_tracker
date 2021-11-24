@@ -1,11 +1,14 @@
 .search-container {
-    width: 290px;
     right: 0px;
-    margin: 25px
+
+    input[type="submit"] {
+      background: url('../app/assets/images/arrow.svg');
+      width: 25px;
+      height: 25px;
+    }
 }
 
 .searchBox {
-    background: #c5c5c5;
     height: 60px;
     border-radius: 40px;
     padding: 10px;
