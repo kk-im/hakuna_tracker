@@ -6,4 +6,4 @@ export default class extends Controller {
   }
 }
 
-// the connection is not working
+// the connection is working in the all projects page

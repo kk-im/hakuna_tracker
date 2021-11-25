@@ -18,11 +18,11 @@ class ProjectsController < ApplicationController
   # with js-stimulus replace the old index with the new one by:
   #   element.priority = new_priority
   #   projects_that_change = projects where priority < new_priority
-  #   projects_that_change.forEach |project| do project.priority -= 1
   def sort
     params["oldPriority"]
     params["newPriority"]
     params["elementId"]
+    #   projects_that_change.forEach |project| do project.priority -= 1
   end
 
   def index
