@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def home
     if user_signed_in?
       @new_project = Project.new
-      @projects = Project.where("user_id = ? AND completed = ? AND deadline < ?", current_user.id, false, (Date.today + 7))
+      search_projects_due_soon
       if params[:timelapse_id].present?
         @timelapse = Timelapse.find(params[:timelapse_id])
       else
@@ -43,23 +43,32 @@ class PagesController < ApplicationController
 
   def search_projects_due_soon
     if params[:query].present?
-      @projects = Project.where("user_id = ? AND completed = ? AND deadline < ? AND name @@ ?", current_user.id, false, (Date.today + 7), params[:query])
+      @projects = Project.where(
+        "user_id = ? AND completed = ? AND deadline >= ? AND deadline <= ? AND (name @@ ? OR client @@ ?)",
+        current_user.id, false, Date.today, (Date.today + 7), params[:query], params[:query])
     else
-      @projects = Project.where("user_id = ? AND completed = ? AND deadline < ?", current_user.id, false, (Date.today + 7))
+      @projects = Project.where(
+        "user_id = ? AND completed = ? AND deadline >= ? AND deadline <= ?",
+        current_user.id, false, Date.today, (Date.today + 7))
     end
   end
 
   def search_in_all_projects
     if params[:query].present?
-      @projects = Project.where("user_id = ? AND name @@ ?", current_user.id, params[:query])
+      @projects = Project.where(
+        "user_id = ? AND (name @@ ? OR client @@ ?)",
+        current_user.id, params[:query], params[:query]
+      )
     else
-      @projects = Project.where(user: current_user, completed: false).order(priority: :asc)
+      @projects = Project.where(user_id: current_user, completed: false).order(priority: :asc)
     end
   end
 
   def search_completed_projects
     if params[:query].present?
-      @completed_projects = Project.where("user_id = ? AND completed = ? AND name @@ ?", current_user.id, true, params[:query]).order(updated_at: :desc)
+      @completed_projects = Project.where("user_id = ? AND completed = ? AND (name @@ ? OR client @@ ?)",
+      current_user.id, true, params[:query], params[:query]
+    ).order(updated_at: :desc)
     else
       @completed_projects = Project.where(user: current_user, completed: true).order(updated_at: :desc)
     end
