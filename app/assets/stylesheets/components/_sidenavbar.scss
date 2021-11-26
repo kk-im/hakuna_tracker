@@ -3,11 +3,11 @@
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  background-color: $taupe-dark;
+  background-color: $taupe;
   font-family: $inter;
   font-weight: 300 !important;
-  width: 18vw;
-  padding: 30px;
+  width: 15vw;
+  padding: 40px;
   text-align: left;
 
   .sidebar-title {
@@ -19,6 +19,20 @@
 
   > * {
     width: 100%;
+  }
+
+  .top-border {
+    border-top: 1px solid #000;
+    padding-top: 50px;
+  }
+}
+
+.sidebar-pair {
+  display: flex;
+  align-items: center;
+
+  i {
+    margin-right: 30px;
   }
 }
 
@@ -43,13 +57,14 @@
 
 .sidebar-section {
 
+  .sidebar-pair:last-child {
+    margin-bottom: -30px;
+  }
+
   button {
     margin-bottom: 25px;
   }
 
-  > * {
-    display: block;
-  }
 }
 
 .sidebar-modal {
