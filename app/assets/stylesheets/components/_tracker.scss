@@ -1,20 +1,37 @@
+.timetracker {
+
+  p {
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 1em;
+  }
+}
+
+.timetracker-module {
+  background: #D3C9BD;
+  border-radius: 50px;
+  height: 65px;
+  padding: 0 25px;
+
+  form {
+    height: 100%;
+  }
+}
+
 .timetracker-project {
   border-color: transparent;
   background-color: transparent;
-  height: 5%;
-  width: 35%;
 }
 
 .timetracker-description {
   border-color: transparent !important;
   background-color: transparent !important;
-  height: 5% !important;
-  padding-top: 5% !important;
-  padding-bottom: 0em !important;
-  padding-left: 0em !important;
-  padding-right: 0em !important;
-  margin-bottom: 0em !important;
-  width: 300px;
+  // height: 5% !important;
+  // padding-top: 5% !important;
+  // padding-bottom: 0em !important;
+  // padding-left: 0em !important;
+  // padding-right: 0em !important;
+  // margin-bottom: 0em !important;
   margin-left: 5% !important;
   border-radius: 10px !important;
   text-align: left;
