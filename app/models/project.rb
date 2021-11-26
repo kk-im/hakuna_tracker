@@ -6,10 +6,10 @@ class Project < ApplicationRecord
   validates :client, presence: true
 
   include PgSearch::Model
-  pg_search_scope :search_by_title_and_synopsis,
+  pg_search_scope :search_by_name_or_client,
     against: [ :name, :client ],
     using: {
-      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+      tsearch: { prefix: true }
     }
 
 end

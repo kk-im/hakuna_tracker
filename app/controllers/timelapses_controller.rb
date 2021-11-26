@@ -15,13 +15,18 @@ class TimelapsesController < ApplicationController
     @timelapse = Timelapse.find(params[:id])
     if @timelapse.start_time
       @timelapse.end_time = Time.now
+      @timelapse.duration = @timelapse.end_time - @timelapse.start_time
+      if @timelapse.project.nil?
+        @timelapse.project.update(cost: 0)
+        @timelapse.project.reload
+      end
+      @timelapse.project.cost += @timelapse.duration / 3600 * @timelapse.project.rate
     else
       @timelapse.start_time = Time.now
     end
     @timelapse.description = params[:description] if params[:description]
-    @timelapse.duration = @timelapse.end_time - @timelapse.start_time if @timelapse.end_time
     @timelapse.save
-    @timelapse.project.cost += @timelapse.duration / 60 * @timelapse.project.rate
+    redirect_to "#{root_path}?timelapse_id=#{@timelapse.id}"
   end
 
   private
