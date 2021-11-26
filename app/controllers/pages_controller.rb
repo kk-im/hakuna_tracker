@@ -51,9 +51,9 @@ class PagesController < ApplicationController
 
   def search_in_all_projects
     if params[:query].present?
-      @projects = Project.where("name @@ ?", params[:query])
+      @projects = Project.where("user_id = ? AND name @@ ?", current_user.id, params[:query])
     else
-      @projects = Project.all.order(priority: :asc)
+      @projects = Project.where(user: current_user, completed: false).order(priority: :asc)
     end
   end
 
