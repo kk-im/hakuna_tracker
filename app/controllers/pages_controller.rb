@@ -21,19 +21,6 @@ class PagesController < ApplicationController
     end
   end
 
-  def sort
-    # old_p = params["oldPriority"]
-    new_p = params["newPriority"]
-    sorted_element_id = params["elementId"]
-    @projects = Project.where(user: current_user, completed: false)
-    @projects.each do |project|
-      if project.priority < new_p + 1
-        project.priority -= 1
-      end
-    end
-    Project.find(sorted_element_id).priority = new_p
-  end
-
   def completed_projects
     @new_project = Project.new
     search_completed_projects
@@ -60,7 +47,7 @@ class PagesController < ApplicationController
         current_user.id, params[:query], params[:query]
       )
     else
-      @projects = Project.where(user_id: current_user, completed: false).order(priority: :asc)
+      @projects = current_user.projects
     end
   end
 

@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 
-  has_many :projects, dependent: :destroy
+  has_many :projects, -> { order(position: :asc) }, dependent: :destroy
 
   def current_user_projects
     projects = self.projects
