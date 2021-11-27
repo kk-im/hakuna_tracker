@@ -1,12 +1,24 @@
-<div class="main main-signed-in col-8">
-<h1 class="dashboard m-5"><%= params[:client] %>'s projects</h1>
+<div class="main main-signed-in">
+
+  <div class="show-projects-header">
+    <h1 class="page-title"><%= params[:client] %>'s projects</h1>
+  </div>
+
+  <div class="project-headers client-grid">
+    <p>Project Name</p>
+    <p>Deadline</p>
+    <p></p>
+    <p></p>
+    <p>Track</p>
+  </div>
+
   <% @projects_of_client.each do |project| %>
-      <div class="project-card d-flex justify-content-between align-items-center my-3">
-        <div class="card-project col-4"><p class="margin-b"><%= project.name %></p></div>
-        <div class="card-project deadline"><p class="margin-b"><%= project.deadline %></p></div>
-        <div class="card-project"><p class="margin-b"><%= render 'projects/edit', project: project %></p></div>
-        <div class="card-element"><p class="margin-b"><%= link_to "Delete", project_path(project), method: 'delete' %></p></div>
-        <div class="card-arrow"><i class="fas fa-caret-right fa-2x btn-play"></i></div>
+      <div class="project-item client-grid">
+        <div><p class="margin-auto"><%= project.name %></p></div>
+        <div><p class="grey-text margin-auto"><%= project.deadline %></p></div>
+        <div class="projects-edit-btn"><p><%= render 'projects/edit', project: project %></div>
+        <div class="projects-delete-btn"><p><%= link_to "Delete", project_path(project), method: 'delete' %></p></div>
+        <div class="center"><i class="fas fa-caret-right fa-2x btn-play"></i></div>
       </div>
   <% end %>
 </div>

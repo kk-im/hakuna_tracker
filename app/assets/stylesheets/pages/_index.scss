@@ -50,6 +50,38 @@ button {
 }
 
 .index-section {
+  margin-bottom: 50px;
 
-  border-radius: 20px;
+  h3 {
+    font-size: 1.4em;
+    font-weight: 300;
+  }
+}
+
+.index-grid {
+  display: grid;
+  grid-template-columns: 225px repeat(6, 125px) 50px;
+  justify-content: space-between;
+}
+
+.blue-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  background: $blue;
+}
+
+.red-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  background: $red;
+}
+
+.new-project-button-home {
+  display: flex;
+  height: 50px;
+  border: 1px solid #000;
+  border-radius: 50px;
+  padding: 0 15px;
 }

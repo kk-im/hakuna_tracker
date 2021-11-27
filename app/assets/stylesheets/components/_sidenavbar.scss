@@ -40,9 +40,9 @@
   display: block;
   padding: 15px 0;
   font-size: 1.2em !important;
-
+  transition: 0.2s;
   &:hover {
-    color: $taupe;
+    transform: scale(1.1);
   }
 }
 
