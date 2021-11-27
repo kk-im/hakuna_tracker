@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <button type="button" data-toggle="modal" data-target="#newModalCenter">
- + Add Project
+  New Project
 </button>
 
 <!-- Modal -->
@@ -24,6 +24,7 @@
           <%= f.input :expected_time, :placeholder => "Estimated Time (Hours)", html5: true, input_html: { min: 1 }  %>
           <%= f.input :deadline, html5: true %>
           <%= f.input :rate, :placeholder => "Hourly Rate" %>
+          <%= f.input :email, :placeholder => "Client email" %>
       </div>
       <div class="modal-footer">
         <%= f.submit "Save", class: "modal-button" %>

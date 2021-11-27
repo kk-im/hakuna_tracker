@@ -16,7 +16,8 @@ body {
 }
 
 .main-signed-in {
-  padding: 50px;
+  padding: 50px 35px;
+  background: $background;
   margin-left: 17vw;
   overflow: auto !important;
 }
@@ -33,4 +34,22 @@ a {
 button {
   border: none;
   background: none;
+}
+
+// Dashboard main styles
+.index-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0;
+
+  h1 {
+    font-size: 2em;
+    align-self: center;
+    font-weight: 400;
+  }
+}
+
+.index-section {
+
+  border-radius: 20px;
 }

@@ -2,20 +2,22 @@
 
 
   <%= link_to image_tag("logo.svg"), root_path, class: "sidebar-logo" %>
+
+
   <div class="sidebar-section">
     <h4 class="sidebar-title">View</h4>
-    <%= link_to "Projects", all_projects_path, class: 'sidebar-link' %>
-    <%= link_to "Clients", clients_projects_path, class: 'sidebar-link' %>
-    <%= link_to "Completed", completed_projects_path, class: 'sidebar-link' %>
+    <div class="sidebar-pair"><i class="fas fa-tasks"></i><%= link_to "Projects", all_projects_path, class: 'sidebar-link' %></div>
+    <div class="sidebar-pair"><i class="fas fa-user-friends"></i><%= link_to "Clients", clients_projects_path, class: 'sidebar-link' %></div>
+    <div class="sidebar-pair"><i class="far fa-check-circle"></i><%= link_to "Completed", completed_projects_path, class: 'sidebar-link' %></div>
   </div>
-  <div class="sidebar-section">
+  <div class="sidebar-section top-border">
     <h4 class="sidebar-title">Report</h4>
-    <a href="" class="sidebar-link">Reports</a>
-    <%= link_to "Invoices", invoices_projects_path, class: 'sidebar-link' %>
+    <div class="sidebar-pair"><i class="far fa-chart-bar"></i><a href="" class="sidebar-link">Reports</a></div>
+    <div class="sidebar-pair"><i class="fas fa-file-invoice-dollar"></i><%= link_to "Invoices", invoices_projects_path, class: 'sidebar-link' %></div>
   </div>
-  <div class="sidebar-section">
+  <div class="sidebar-section top-border">
     <h4 class="sidebar-title">Info</h4>
-    <a href="" class="sidebar-link">About</a>
+    <div class="sidebar-pair"><i class="fas fa-circle"></i><a href="" class="sidebar-link">About</a></div>
   </div>
 
   <div class="sidebar-modal">

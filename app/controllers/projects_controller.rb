@@ -4,23 +4,17 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user = current_user
-    @project.priority = current_user.projects.count + 1
+    # @project.priority = current_user.projects.count + 1
     redirect_to root_path if @project.save!
     # else
     #   render "new"
     # end
   end
 
-  # PSEUDOCODE TO PERSIST PRIORITY (important to run db:migrate & db:seed)
-  # new migration for Project model with a priority attribute :integer
-  # when creating a project asign @project.priority = current_user.projects.count + 1
-  # the all_proyects list should be ordered by priority :asc
-  # with js-stimulus replace the old index with the new one by:
-  #   element.priority = new_priority
-  #   projects_that_change = projects where priority < new_priority
-  #   projects_that_change.forEach |project| do project.priority -= 1
-  # def sort() son parametros en params: old_index, new_index
-  # el project lo voy a obtener del data-set del item
+  def sort
+    @project = Project.find(params[:id])
+    @project.insert_at(params[:position].to_i)
+  end
 
   def index
     @projects = Project.where(user: current_user)
@@ -32,6 +26,7 @@ class ProjectsController < ApplicationController
     @status = @project.completed ? "Complete" : "Incomplete"
     @counter = 1
     @logs = @project.timelapses
+    @client_email = @project.email
 
     url = 'https://api.imgflip.com/get_memes'
     memes_url = URI.open(url).read
@@ -43,8 +38,8 @@ class ProjectsController < ApplicationController
       format.html
       format.pdf do
         render pdf: "#{@project.name}", template: "projects/pdf.html.erb"   # Excluding ".pdf" extension.
+        ProjectMailer.with(project: @project).project_invoice_email.deliver_now
       end
-      UserMailer.welcome
     end
   end
 
@@ -96,6 +91,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :client, :deadline, :expected_time, :rate)
+    params.require(:project).permit(:name, :client, :deadline, :expected_time, :rate, :email)
   end
 end
