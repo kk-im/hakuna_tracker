@@ -38,11 +38,11 @@
 
 .sidebar-link {
   display: block;
-  padding: 15px 0;
+  padding: 12px 0;
   font-size: 1.2em !important;
-
+  transition: 0.2s;
   &:hover {
-    color: $taupe;
+    transform: scale(1.1);
   }
 }
 
@@ -50,7 +50,7 @@
   margin: -15px;
 
   img {
-    width: 100%;
+    width: 125%;
   }
 
   }
@@ -58,7 +58,7 @@
 .sidebar-section {
 
   .sidebar-pair:last-child {
-    margin-bottom: -30px;
+    margin-bottom: -20px;
   }
 
   button {
@@ -68,22 +68,22 @@
 }
 
 .sidebar-modal {
-  border: 1px solid #000;
   border-radius: 35px;
   text-align: center;
-  margin-bottom: -30px;
 
   button {
     padding: 10px;
     width: 100%;
+    background: #000;
+    border-radius: 35px;
+    color: #fff;
     transition: 0.2s;
   }
 
   button:hover {
-    background: #000;
+    transform: scale(1.1);
     color: #fff;
     cursor: pointer;
-    border-radius: 35px;
   }
 }
 

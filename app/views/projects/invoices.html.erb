@@ -1,14 +1,23 @@
 <div class="main main-signed-in">
 
-  <h1 class="page-title">Invoices</h1>
+  <div class="show-projects-header">
+    <h1 class="page-title">Invoices</h1>
+  </div>
+
+    <div class="project-headers grid invoices-grid">
+      <p>Project Name</p>
+      <p>Client</p>
+      <p>Amount</p>
+      <p>Download Invoice</p>
+    </div>
 
   <div>
     <% @projects.each do |project| %>
-        <div class="project-card d-flex justify-content-between align-items-center my-3">
-          <div class="card-project"><p class="margin-b"><%= link_to project.name, project_path(project) %></p></div>
-          <div class="card-client"><p class="margin-b"><%= project.client %></p></div>
-          <div class="card-element"><p class="margin-b">$<%= project.cost %></p></div>
-          <%= link_to 'Download invoice', project_path(project, format: :pdf), class: "card-element", target: :_blank %>
+        <div class="project-item grid invoices-grid">
+          <div><p class="margin-auto"><%= link_to project.name, project_path(project) %></p></div>
+          <div><p class="grey-text margin-auto"><%= project.client %></p></div>
+          <div><p class="margin-auto">$<%= project.cost %></p></div>
+          <%= link_to image_tag('file-arrow-down.svg', height: 25), project_path(project, format: :pdf), class: 'margin-auto', target: :_blank %>
         </div>
     <% end %>
   </div>

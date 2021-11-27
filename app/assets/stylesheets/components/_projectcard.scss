@@ -4,38 +4,64 @@
   border-radius: 50px;
   transition: opacity 0.3s ease;
   display: grid;
-  grid-template-columns: 200px 200px repeat(4, 1fr);
+  grid-template-columns: repeat(3, 250px);
 }
 
-.dashboard {
-  color: $orange;
-  font-size: larger;
+.project-item {
+  padding: 15px;
+  background: $project-item;
+  border-radius: 25px;
+  align-items: center;
+  margin-bottom: 15px;
+
 }
 
-// .card-project {
-//   width: 15% ;
-// }
+.projects-edit-btn {
+  background: #6F6A63;
+  border-radius: 50px;
 
-// .card-client {
-//   width: 20% ;
-// }
+  p {
+    text-align: center;
+    padding: 5px;
+    margin: auto;
+  }
 
-// .card-button {
-//   width: 45%;
-// }
+  button,
+  a {
+    color: #fff;
+  }
+}
 
-// .card-tt {
-//   width: 35%;
-// }
+.projects-delete-btn {
+  background: #4B453C;
+  border-radius: 50px;
 
-// .card-arrow {
-//   width: 5%;
-// }
+  p {
+    text-align: center;
+    padding: 5px;
+    margin: auto;
+  }
 
-// .deadline {
-//   color: gray;
-// }
+  a {
+    color: #fff;
+  }
+}
 
-.margin-b{
-  margin:0%;
+.projects-edit-btn,
+.projects-delete-btn {
+  transition: 0.2s;
+
+  a:hover {
+    color: #fff;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+
+
+.margin-auto {
+  margin: auto !important;
 }

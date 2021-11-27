@@ -1,40 +1,39 @@
 <div class="main main-signed-in">
 
-<div class="d-flex justify-content-end ">
-  <div class="search-container">
-    <%= form_tag clients_projects_path, method: :get, class: "searchBox" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "searchInput",
-        placeholder: "Find a project"
-      %>
-      <%= submit_tag "🔎 Search", class: "searchButton" %>
-    <% end %>
-  </div>
-</div>
+  <div class="show-projects-header">
 
-<h1 class="dashboard m-5">CLIENTS</h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th class="text-center" scope="col"></th>
-      <th class="text-left" scope="col">Name</th>
-      <th class="text-center" scope="col">Number of Projects</th>
-      <th class="text-center" scope="col">Projects</th>
-    </tr>
-  </thead>
-  <tbody>
+    <h1 class="page-title">Clients</h1>
+
+    <div class="search-container">
+      <%= form_tag all_projects_path, method: :get, class: "searchBox" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "searchInput",
+          placeholder: "Search"
+        %>
+        <i class="fas fa-arrow-right search-arrow"></i>
+        <%= submit_tag " ", class: "search-submit" %>
+
+      <% end %>
+    </div>
+
+  </div>
+
+
+  <div class="project-headers grid clients-grid">
+    <p>Client  Name</p>
+    <p>No. of Projects</p>
+    <p class="text-center">See All Projects</p>
+  </div>
+
   <% i = 0 %>
   <% @clients.each do |client, project| %>
-    <tr>
-      <th class="text-center" scope="row"><% i %></th>
-      <td class="text-left"><%= client%> </td>
-      <td class="text-center"> <%= project %> </td>
-      <td class="text-center"> <%= link_to "See all projects", client_projects_path(client) %></td>
-    </tr>
-    <% end %>
+    <div class="clients-grid grid project-item">
+      <div><p class="margin-auto"><%= client %></p></div>
+      <div><p class="margin-auto center"><%= project %></p></div>
+      <%= link_to image_tag('eye.svg', height: 25), client_projects_path(client) %>
+    </div>
+  <% end %>
     <% i += 1 %>
-  </tbody>
-</table>
 
 </div>
