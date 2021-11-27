@@ -24,7 +24,8 @@
   <h2 class="project-name">Log</h2>
   <%= render 'table', project: @projects %>
   <p>Total ($)</p>
-  <p><%= @project.cost %></p>
+
+  <p><%= @total_cost.round(2) %></p>
     <div class="project-action-buttons">
       <%= link_to 'Mark as completed', complete_project_path(@project), class: 'project-show-button mr-4', method: 'patch' %>
       <%= link_to 'Generate invoice', project_path(@project, format: :pdf), class: 'project-show-button mr-4', target: "_blank" %> <%# Boton para PDF by: Mau:)  %>
