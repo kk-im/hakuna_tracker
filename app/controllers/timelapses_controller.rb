@@ -13,14 +13,16 @@ class TimelapsesController < ApplicationController
 
   def update
     @timelapse = Timelapse.find(params[:id])
+    timelapse_cost = 0
     if @timelapse.start_time
       @timelapse.end_time = Time.now
       @timelapse.duration = @timelapse.end_time - @timelapse.start_time
-      if @timelapse.project.nil?
+      if @timelapse.project.cost.nil?
         @timelapse.project.update(cost: 0)
         @timelapse.project.reload
       end
-      @timelapse.project.cost += @timelapse.duration / 3600 * @timelapse.project.rate
+      timelapse_cost = ((@timelapse.duration / 3600) * @timelapse.project.rate)
+      @timelapse.project.cost += timelapse_cost
     else
       @timelapse.start_time = Time.now
     end

@@ -9,15 +9,14 @@
     </tr>
   </thead>
   <tbody>
-  <% @logs.each do |log| %>
+  <% @logs.each_with_index do |log, index| %>
     <tr>
-      <th scope="row"> <%= @counter %></th>
+      <th scope="row"><%= index + 1 %></th>
       <td><%= log.start_time.strftime("%d %B %Y") %></td>
       <td><%= log.description %></td>
-      <td><%= Time.at(log.duration).utc.strftime('%H hr : %M m') %></td>
-      <td>$ <%= (log.duration/60) * @project.rate %></td>
+      <td><%= Time.at(log.duration).utc.strftime('%H hr : %M m : %S s') %></td>
+      <td>$ <%= ((log.duration/3600) * @project.rate).round(2) %></td>
     </tr>
-    <% @counter += 1 %>
   <% end %>
   </tbody>
 </table>
