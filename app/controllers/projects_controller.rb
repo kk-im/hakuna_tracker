@@ -24,8 +24,8 @@ class ProjectsController < ApplicationController
     @new_project = Project.new
     @project = Project.find(params[:id])
     @status = @project.completed ? "Complete" : "Incomplete"
-    @counter = 1
-    @logs = @project.timelapses
+    @logs = @project.timelapses.where('duration is not null')
+    @total_cost = @logs.sum { |log| (log.duration / 3600) * @project.rate }
     @client_email = @project.email
 
     url = 'https://api.imgflip.com/get_memes'
