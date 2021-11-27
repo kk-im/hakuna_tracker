@@ -23,7 +23,7 @@
   <div class="project-headers grid clients-grid">
     <p>Client  Name</p>
     <p>No. of Projects</p>
-    <p>See All Projects</p>
+    <p class="text-center">See All Projects</p>
   </div>
 
   <% i = 0 %>
@@ -31,7 +31,7 @@
     <div class="clients-grid grid project-item">
       <div><p class="margin-auto"><%= client %></p></div>
       <div><p class="margin-auto center"><%= project %></p></div>
-      <%= link_to "See all projects", client_projects_path(client) %>
+      <%= link_to image_tag('eye.svg', height: 25), client_projects_path(client) %>
     </div>
   <% end %>
     <% i += 1 %>

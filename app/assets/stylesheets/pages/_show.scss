@@ -60,6 +60,14 @@
 
 .clients-grid {
   grid-template-columns: 50% 30% 1fr;
+
+  a {
+    text-align: center;
+  }
+
+  a:hover {
+    transform: scale(1.2);
+  }
 }
 
 .client-grid {
