@@ -56,6 +56,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
+    acts_as_list (1.0.4)
+      activerecord (>= 4.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     autoprefixer-rails (10.2.5.0)
@@ -120,10 +122,14 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.6.1)
     minitest (5.14.4)
     msgpack (1.4.2)
     nio4r (2.5.8)
-    nokogiri (1.12.5-x86_64-linux)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
+      racc (~> 1.4)
+    nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
     open-uri (0.2.0)
       stringio
@@ -148,6 +154,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
     rack-proxy (0.7.0)
       rack
     rack-test (1.1.0)
@@ -257,10 +265,12 @@ GEM
     zeitwerk (2.5.1)
 
 PLATFORMS
+  ruby
   x86_64-darwin-20
   x86_64-linux
 
 DEPENDENCIES
+  acts_as_list (~> 1.0)
   autoprefixer-rails (= 10.2.5)
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.2.1)
@@ -279,6 +289,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma (~> 4.1)
+  rack-cors (~> 1.1)
   rails (~> 6.0.4, >= 6.0.4.1)
   redis (~> 4.0)
   sass-rails (>= 6)

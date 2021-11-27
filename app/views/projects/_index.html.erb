@@ -1,42 +1,45 @@
 <%# Placeholder for the tracker %>
 <%= render 'shared/tracker' %>
 
-<div class="d-flex justify-content-end ">
+<div class="index-header">
+  <h1>Dashboard</h1>
+
+  <%# Search bar for projects %>
   <div class="search-container">
-    <%= form_tag root_path, method: :get, class: "searchBox" do %>
+    <%= form_tag all_projects_path, method: :get, class: "searchBox" do %>
       <%= text_field_tag :query,
         params[:query],
         class: "searchInput",
-        placeholder: "Find a project"
+        placeholder: "Search"
       %>
-      <%= submit_tag "🔎 Search", class: "searchButton" %>
+      <i class="fas fa-arrow-right search-arrow"></i>
+      <%= submit_tag " ", class: "search-submit" %>
     <% end %>
   </div>
+
 </div>
 
-<h1 class="dashboard">DASHBOARD</h1>
-
-<div>
-<h3 class="my-4">Due Soon</h3>
-  <div class="d-flex justify-content-between align-items-center">
-    <div><p>Project</p></div>
-    <div><p>Client</p></div>
-    <div><p>Due date</p></div>
-    <div><p>Exp. hours</p></div>
-    <div><p>Rate/hr</p></div>
-  </div>
-  <% @projects.each do |project| %>
-      <div class="project-card d-flex justify-content-between align-items-center my-3" id="project-<%=project.id %>">
-        <div class="card-project"><p class="margin-b"><%= link_to project.name, project_path(project) %></p></div>
-        <div class="card-client"><p class="margin-b"><%= project.client %></p></div>
-        <div class="card-project deadline"><p class="margin-b"><%= project.deadline %></p></div>
-        <div class="card-project deadline"><p class="margin-b"><%= project.expected_time %> hr</p></div>
-        <div class="card-project deadline"><p class="margin-b">$<%= project.rate %></p></div>
-        <div class="card-project"><p class="margin-b"><%= render "projects/edit", project: project %></p></div>
-        <div class="card-element"><p class="margin-b"><%= link_to "Delete", project_path(project), method: 'delete' %></p></div>
-        <div class="card-arrow"><i class="fas fa-caret-right fa-2x btn-play"></i></div>
-      </div>
-  <% end %>
+<div class="index-section">
+  <h3>Due Soon</h3>
+    <div class="d-flex justify-content-between align-items-center">
+      <div><p>Project</p></div>
+      <div><p>Client</p></div>
+      <div><p>Due date</p></div>
+      <div><p>Exp. hours</p></div>
+      <div><p>Rate/hr</p></div>
+    </div>
+    <% @projects.each do |project| %>
+        <div class="project-card d-flex justify-content-between align-items-center my-3" id="project-<%=project.id %>">
+          <div class="card-project"><p class="margin-b"><%= link_to project.name, project_path(project) %></p></div>
+          <div class="card-client"><p class="margin-b"><%= project.client %></p></div>
+          <div class="card-project deadline"><p class="margin-b"><%= project.deadline %></p></div>
+          <div class="card-project deadline"><p class="margin-b"><%= project.expected_time %> hr</p></div>
+          <div class="card-project deadline"><p class="margin-b">$<%= project.rate %></p></div>
+          <div class="card-project"><p class="margin-b"><%= render "projects/edit", project: project %></p></div>
+          <div class="card-element"><p class="margin-b"><%= link_to "Delete", project_path(project), method: 'delete' %></p></div>
+          <div class="card-arrow"><i class="fas fa-caret-right fa-2x btn-play"></i></div>
+        </div>
+    <% end %>
 </div>
 
 <div>

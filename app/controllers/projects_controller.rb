@@ -11,16 +11,10 @@ class ProjectsController < ApplicationController
     # end
   end
 
-  # PSEUDOCODE TO PERSIST PRIORITY (important to run db:migrate & db:seed)
-  # new migration for Project model with a priority attribute :integer
-  # when creating a project asign @project.priority = current_user.projects.count + 1
-  # the all_proyects list should be ordered by priority :asc
-  # with js-stimulus replace the old index with the new one by:
-  #   element.priority = new_priority
-  #   projects_that_change = projects where priority < new_priority
-  #   projects_that_change.forEach |project| do project.priority -= 1
-  # def sort() son parametros en params: old_index, new_index
-  # el project lo voy a obtener del data-set del item
+  def sort
+    @project = Project.find(params[:id])
+    @project.insert_at(params[:position].to_i)
+  end
 
   def index
     @projects = Project.where(user: current_user)

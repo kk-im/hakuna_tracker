@@ -47,7 +47,7 @@ class PagesController < ApplicationController
         current_user.id, params[:query], params[:query]
       )
     else
-      @projects = Project.where(user_id: current_user).order(priority: :asc)
+      @projects = current_user.projects
     end
   end
 

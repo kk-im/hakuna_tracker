@@ -1,21 +1,34 @@
 <div class="main main-signed-in">
 
-<div class="d-flex justify-content-end ">
-  <div class="search-container">
-    <%= form_tag all_projects_path, method: :get, class: "searchBox" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "searchInput",
-        placeholder: "Find a project"
-      %>
-      <%= submit_tag "🔎 Search", class: "searchButton" %>
-    <% end %>
+  <div class="all-projects-header">
+
+    <h1 class="page-title">All Projects</h1>
+
+    <div class="search-container">
+      <%= form_tag all_projects_path, method: :get, class: "searchBox" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "searchInput",
+          placeholder: "Search"
+        %>
+        <i class="fas fa-arrow-right search-arrow"></i>
+        <%= submit_tag " ", class: "search-submit" %>
+
+      <% end %>
+    </div>
+
   </div>
-</div>
 
-  <h1 class="page-title">All Projects</h1>
+  <div class="project-headers bottom-border">
+    <p>Project Name</p>
+    <p>Client</p>
+    <p>Deadline</p>
+    <p></p>
+    <p></p>
+    <p>Track</p>
+  </div>
 
-  <div class="sortable" data-controller="persist-priority">
+  <div class="sortable" data-controller="persist-priority" data-persist-priority-url="/projects/:id/sort">
     <% @projects.each do |project| %>
         <div data-id="<%= project.id %>" class="project-card d-flex justify-content-between align-items-center my-3" id="project-<%=project.id %>">
           <div class="card-project"><p class="margin-b"><%= link_to project.name, project_path(project) %></p></div>
