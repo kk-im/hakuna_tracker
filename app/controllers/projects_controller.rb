@@ -38,9 +38,14 @@ class ProjectsController < ApplicationController
       format.html
       format.pdf do
         render pdf: "#{@project.name}", template: "projects/pdf.html.erb"   # Excluding ".pdf" extension.
-        ProjectMailer.with(project: @project).project_invoice_email.deliver_now
       end
     end
+  end
+
+  def send_email
+    @project = Project.find(params[:id])
+    ProjectMailer.with(project: @project).project_invoice_email.deliver_now
+    redirect_to project_path(@project)
   end
 
   def edit
