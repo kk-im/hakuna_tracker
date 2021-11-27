@@ -34,6 +34,12 @@ class ProjectsController < ApplicationController
     @meme_hash = @memes['data']['memes'].sample
     @image_meme = @meme_hash['url']
 
+    if request.host_with_port.include?("localhost")
+      @logo_url = "http://#{request.host_with_port}/assets/logo.png"
+    else
+      @logo_url = "https://#{request.host_with_port}/assets/logo.png"
+    end
+
     respond_to do |format|
       format.html
       format.pdf do
