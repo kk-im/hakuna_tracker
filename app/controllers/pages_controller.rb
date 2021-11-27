@@ -47,7 +47,7 @@ class PagesController < ApplicationController
         current_user.id, params[:query], params[:query]
       )
     else
-      @projects = current_user.projects.where(completed: false)
+      @projects = current_user.projects
     end
   end
 
