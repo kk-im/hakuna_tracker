@@ -27,9 +27,8 @@ ActiveRecord::Schema.define(version: 2021_11_26_021723) do
     t.integer "rate"
     t.integer "cost"
     t.boolean "completed", default: false
-    t.integer "priority"
-    t.string "email"
     t.integer "position"
+    t.string "email"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
