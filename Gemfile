@@ -69,7 +69,5 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'json', '~> 2.6', '>= 2.6.1'
 gem 'open-uri'
-gem 'dotenv-rails', groups: [:development, :test]
 gem "acts_as_list", "~> 1.0"
 gem "rack-cors", "~> 1.1"
-

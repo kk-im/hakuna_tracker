@@ -34,13 +34,24 @@ class ProjectsController < ApplicationController
     @meme_hash = @memes['data']['memes'].sample
     @image_meme = @meme_hash['url']
 
+    if request.host_with_port.include?("localhost")
+      @logo_url = "http://#{request.host_with_port}/assets/logo.png"
+    else
+      @logo_url = "https://#{request.host_with_port}/assets/logo.png"
+    end
+
     respond_to do |format|
       format.html
       format.pdf do
         render pdf: "#{@project.name}", template: "projects/pdf.html.erb"   # Excluding ".pdf" extension.
-        ProjectMailer.with(project: @project).project_invoice_email.deliver_now
       end
     end
+  end
+
+  def send_email
+    @project = Project.find(params[:id])
+    ProjectMailer.with(project: @project).project_invoice_email.deliver_now
+    redirect_to project_path(@project)
   end
 
   def edit
