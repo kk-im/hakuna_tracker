@@ -19,21 +19,24 @@
 
   </div>
 
-  <div class="project-headers grid all-projects-grid">
-    <p>Project Name</p>
-    <p>Client</p>
-    <p>Deadline</p>
+  <div class="index-grid grid">
+    <div><p>Project</p></div>
+    <div><p>Client</p></div>
+    <div><p>Deadline</p></div>
+    <div><p>Exp. Hours</p></div>
+    <div><p>Rate ($/Hour)</p></div>
     <p></p>
     <p></p>
-    <%# <p>Track</p> %>
   </div>
 
   <div class="sortable" data-controller="persist-priority" data-persist-priority-url="/projects/:id/sort">
     <% @projects.each do |project| %>
-        <div data-id="<%= project.id %>" class="all-projects-grid grid project-item" id="project-<%=project.id %>">
+        <div data-id="<%= project.id %>" class="index-grid grid project-item" id="project-<%=project.id %>">
           <div><p class="margin-auto"><%= link_to project.name, project_path(project) %></p></div>
           <div><p class="grey-text margin-auto"><%= project.client %></p></div>
           <div><p class="grey-text margin-auto"><%= project.deadline %></p></div>
+          <div><p class="grey-text margin-auto"><%= project.expected_time %>hr</p></div>
+          <div><p class="grey-text margin-auto"><%= project.rate %></p></div>
           <div class="projects-edit-btn"><p><%= render 'projects/edit', project: project %></div>
           <div class="projects-delete-btn"><p><%= link_to "Delete", project_path(project), method: 'delete' %></p></div>
           <%# <div class="center"><i class="fas fa-caret-right fa-2x btn-play"></i></div> %>

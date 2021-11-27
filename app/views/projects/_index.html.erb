@@ -38,7 +38,6 @@
       <p>Rate ($/Hour)</p>
       <p></p>
       <p></p>
-      <p></p>
     </div>
 
     <% @projects.each do |project| %>
@@ -50,7 +49,7 @@
         <div><p class="grey-text margin-auto"><%= project.rate %></p></div>
         <div class="projects-edit-btn"><p><%= render 'projects/edit', project: project %></div>
         <div class="projects-delete-btn"><p><%= link_to "Delete", project_path(project), method: 'delete' %></p></div>
-        <div><i class="fas fa-caret-right fa-2x btn-play"></i></div>
+        <%# <div><i class="fas fa-caret-right fa-2x btn-play"></i></div> %>
       </div>
     <% end %>
 </div>
@@ -59,7 +58,7 @@
   <div class="d-flex">
     <div class="blue-circle mr-3"></div><h3 class="mb-5">Recently Completed</h3>
   </div>
-  <div class="index-grid">
+  <div class="index-grid grid">
     <div><p>Project</p></div>
     <div><p>Client</p></div>
     <div><p>Deadline</p></div>
@@ -67,11 +66,10 @@
     <div><p>Rate ($/Hour)</p></div>
     <p></p>
     <p></p>
-    <p></p>
   </div>
 
   <% @projects_recently_completed.each do |project|  %>
-    <div class="index-grid project-item" id="project-<%=project.id %>">
+    <div class="index-grid grid project-item" id="project-<%=project.id %>">
       <div><p class="margin-auto"><%= link_to project.name, project_path(project) %></p></div>
       <div><p class="grey-text margin-auto"><%= project.client %></p></div>
       <div><p class="grey-text margin-auto"><%= project.deadline %></p></div>
@@ -79,7 +77,7 @@
       <div><p class="grey-text margin-auto"><%= project.rate %></p></div>
       <div class="projects-edit-btn"><p><%= render 'projects/edit', project: project %></div>
       <div class="projects-delete-btn"><p><%= link_to "Delete", project_path(project), method: 'delete' %></p></div>
-      <div class="card-arrow"><i class="fas fa-caret-right fa-2x btn-play"></i></div>
+      <%# <div class="card-arrow"><i class="fas fa-caret-right fa-2x btn-play"></i></div> %>
     </div>
  <% end %>
 </div>

@@ -39,10 +39,13 @@
   height: 5vh;
   font-size: 1.25em;
   z-index: 3;
+}
 
-  .logo img {
-    height: 80px;
-  }
+.logo-home {
+  height: 60px;
+  background: url(logo.svg);
+  background-size: cover;
+  width: 250px;
 }
 
 .home-header,
@@ -120,16 +123,7 @@
 }
 
 .new-user-home-link {
-  transition: 0.2s;
   padding: 10px 30px;
-
-  &:hover {
-    background: $brown;
-    border-radius: 50px;
-    text-align: center;
-    color: #fff;
-    cursor: pointer;
-  }
 }
 
 .hero-link {
@@ -142,5 +136,6 @@
 
   &:hover {
     transform:scale(1.1);
+    color: #fff;
   }
 }

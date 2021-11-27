@@ -1,12 +1,15 @@
 <div class='main main-signed-in'>
-  <div class="project-show">
-    <h1 class="sidebar-title">PROJECTS</h1>
+
+  <div class="show-projects-header">
+    <h1 class="page-title">Projects</h1>
   </div>
+
   <div class="project-show">
     <h2 class="project-name"><%= @project.name %> </h2>
     <h2 class="gray"><%= @project.client %> </h2>
     <h3 class="gray pl-3"><%= @project.email %></h3>
   </div>
+
   <div class="project-show">
     <a class="project-show-button"><%= @status %></a>
   </div>
@@ -14,7 +17,7 @@
   <div class="project-show project-details">
     <p><span class="gray">Due date: </span><%= @project.deadline %></p>
     <p><span class="gray">Rate: </span>$<%= @project.rate %>/hour</p>
-    <%= render 'edit', project: @project %>
+   <a href=""><%= render 'edit', project: @project, class: 'project-show-button' %></a>
     <button><%= link_to 'Delete', project_path, method: 'delete', class: 'project-show-button' %></button>
   </div>
 
@@ -22,7 +25,9 @@
   <%= render 'table', project: @projects %>
   <p>Total ($)</p>
   <p><%= @project.cost %></p>
-  <button><%= link_to 'Mark as completed', complete_project_path(@project), method: 'patch' %></button>
-  <%= link_to 'Generate invoice', project_path(@project, format: :pdf), class: "btn btn-danger", target: "_blank" %> <%# Boton para PDF by: Mau:)  %>
-  <%= link_to 'Send by email', send_email_project_path(@project), class: "btn btn-danger" %>
-</div>
+    <div class="project-action-buttons">
+      <%= link_to 'Mark as completed', complete_project_path(@project), class: 'project-show-button mr-4', method: 'patch' %>
+      <%= link_to 'Generate invoice', project_path(@project, format: :pdf), class: 'project-show-button mr-4', target: "_blank" %> <%# Boton para PDF by: Mau:)  %>
+      <%= link_to 'Send by email', send_email_project_path(@project), class: "project-show-button" %>
+    </div>
+  </div>
