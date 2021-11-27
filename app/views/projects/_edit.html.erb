@@ -26,6 +26,8 @@
           <%= f.input :client, :placeholder => 'Client *' %>
           <%= f.input :expected_time, :placeholder => "Estimated Time (Hours)", html5: true, input_html: { min: 1 }  %>
           <%= f.input :deadline, html5: true %>
+          <%= f.input :rate, :label => "Rate ($/hr)" %>
+          <%= f.input :email, :placeholder => "Client email" %>
           <%= f.input :rate, :placeholder => "Hourly Rate" %>
         </div>
         <div class="modal-footer">

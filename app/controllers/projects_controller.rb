@@ -26,6 +26,7 @@ class ProjectsController < ApplicationController
     @status = @project.completed ? "Complete" : "Incomplete"
     @counter = 1
     @logs = @project.timelapses
+    @client_email = @project.email
 
     url = 'https://api.imgflip.com/get_memes'
     memes_url = URI.open(url).read
@@ -37,8 +38,8 @@ class ProjectsController < ApplicationController
       format.html
       format.pdf do
         render pdf: "#{@project.name}", template: "projects/pdf.html.erb"   # Excluding ".pdf" extension.
+        ProjectMailer.with(project: @project).project_invoice_email.deliver_now
       end
-      UserMailer.welcome
     end
   end
 
@@ -90,6 +91,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :client, :deadline, :expected_time, :rate)
+    params.require(:project).permit(:name, :client, :deadline, :expected_time, :rate, :email)
   end
 end
