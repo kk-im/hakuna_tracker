@@ -6,7 +6,7 @@
     <h1>Dashboard <span class="grey-text ml-5 font-weight-light">Welcome</span></h1>
   </div>
 
-  <div>
+  <div class="sidebar-modal">
     <%= render partial: 'projects/new', locals: {new_project: @new_project} %>
   </div>
 
@@ -30,7 +30,7 @@
     <div class="red-circle mr-3"></div><h3>Due Soon</h3>
   </div>
 
-    <div class="index-grid">
+    <div class="index-grid grid">
       <p>Project</p>
       <p>Client</p>
       <p>Deadline</p>
@@ -42,7 +42,7 @@
     </div>
 
     <% @projects.each do |project| %>
-      <div class="index-grid project-item" id="project-<%=project.id %>">
+      <div class="index-grid project-item grid" id="project-<%=project.id %>">
         <div><p class="margin-auto"><%= link_to project.name, project_path(project) %></p></div>
         <div><p class="grey-text margin-auto"><%= project.client %></p></div>
         <div><p class="grey-text margin-auto"><%= project.deadline %></p></div>

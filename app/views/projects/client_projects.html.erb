@@ -4,7 +4,7 @@
     <h1 class="page-title"><%= params[:client] %>'s projects</h1>
   </div>
 
-  <div class="project-headers client-grid">
+  <div class="project-headers grid client-grid">
     <p>Project Name</p>
     <p>Deadline</p>
     <p></p>
@@ -13,7 +13,7 @@
   </div>
 
   <% @projects_of_client.each do |project| %>
-      <div class="project-item client-grid">
+      <div class="project-item grid client-grid">
         <div><p class="margin-auto"><%= project.name %></p></div>
         <div><p class="grey-text margin-auto"><%= project.deadline %></p></div>
         <div class="projects-edit-btn"><p><%= render 'projects/edit', project: project %></div>

@@ -21,24 +21,24 @@
 
     </div>
 
-    <div class="project-headers all-projects-grid">
+    <div class="project-headers grid all-projects-grid">
       <p>Project Name</p>
       <p>Client</p>
       <p>Deadline</p>
       <p></p>
       <p></p>
-      <p>Track</p>
+      <%# <p>Track</p> %>
     </div>
 
 
     <% @completed_projects.each do |project|  %>
-      <div class="all-projects-grid project-item">
+      <div class="all-projects-grid grid project-item">
         <div><p class="margin-auto"><%= link_to project.name, project_path(project) %></p></div>
         <div><p class="grey-text margin-auto"><%= project.client %></p></div>
         <div><p class="grey-text margin-auto"><%= project.deadline %></p></div>
         <div class="projects-edit-btn"><p><%= link_to "Edit", project_path(project.id), method: 'edit' %></p></div>
         <div class="projects-delete-btn"><p><%= link_to "Delete", project_path(project.id), method: 'delete' %></p></div>
-        <div><i class="fas fa-caret-right fa-2x btn-play"></i></div>
+        <%# <div><i class="fas fa-caret-right fa-2x btn-play"></i></div> %>
       </div>
     <% end %>
 
