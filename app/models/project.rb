@@ -1,4 +1,5 @@
 class Project < ApplicationRecord
+  acts_as_list scope: :user_id
   belongs_to :user
   has_many :timelapses, dependent: :destroy
 

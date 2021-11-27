@@ -11,11 +11,10 @@ class ProjectsController < ApplicationController
     # end
   end
 
-  # def sort
-  #   params["oldPriority"]
-  #   params["newPriority"]
-  #   params["elementId"]
-  # end
+  def sort
+    @project = Project.find(params[:id])
+    @project.insert_at(params[:position].to_i)
+  end
 
   def index
     @projects = Project.where(user: current_user)
