@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     member do
       patch :complete
       patch :sort
+      get :send_email
     end
     collection do
       get :clients
