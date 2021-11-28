@@ -1,11 +1,48 @@
-<div>
+<head>
+  <style>
+    .back{
+      background-color: rgb(206, 58, 0);
+      padding: 8px;
+      width: 200px;
+      color: white;
+      text-align: left;
+    }
 
-  <h1 style="color: orange;">HAKUNA</h1>
+    .text-pdf{
+      color: rgb(206, 58, 0);
+      text-align: right;
+    }
+
+    .flexbox{
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .table{
+      padding: 50px 24px;
+    }
+
+  </style>
+</head>
+
+
+</div>
+  <div class="flexbox">
+    <%= wicked_pdf_image_tag @logo_url %>
+    <h2 class="text-pdf">Invoice</h2>
   <div>
-    <h2>Project: <%= @project.name %></h2>
+  <div class="flexbox">
+    <div>
+      <p> <%= @project.name %></p>
+      <p><%= @project.user.email %></p>
+    </div>
+    <div>
+    <p class="back">Billed to</p>
+    <p><%= @project.email %></p>
     <p>Client: <%= @project.client %></p>
+    </div>
+    <%= wicked_pdf_image_tag @image_meme, style: "width: 400px; height: 300px;" %>
   </div>
-
   <div>
       <table class="table table-hover">
         <thead>
@@ -23,13 +60,10 @@
               <td><%= log.start_time.strftime("%d %B %Y") %></td>
               <td><%= log.description %></td>
               <td><%= Time.at(log.duration).utc.strftime('%H hr : %M m : %S s') %></td>
-              <td>$ <%= ((log.duration/3600) * @project.rate).round(2) %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
     <p>Total ($) = <%= @total_cost.round(2) %></p>
   </div>
-  <%= wicked_pdf_image_tag @image_meme, style: "width: 400px; height: 300px;" %>
-  <%= wicked_pdf_image_tag @logo_url %>
 </div>

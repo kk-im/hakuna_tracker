@@ -1,6 +1,6 @@
-<p>Hi,<%= @project.client %><p>
+<h1>Hi,<%= @project.client %><h1>
+<h2>Here is your invoice</h2>
 
-<p>Here is your invoice</p>
-<%= link_to "Your invoice", project_url(@project, format: :pdf) %>
+<p><%= link_to "Your invoice", project_url(@project, format: :pdf) %></p>
 
 <p>See ya!</p>
