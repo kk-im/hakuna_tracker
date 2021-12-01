@@ -4,7 +4,7 @@ import Rails from "@rails/ujs";
 
 export default class extends Controller {
   connect() {
-    this.sortable = Sortable.create(this.element, {
+      this.sortable = Sortable.create(this.element, {
       ghostClass: "ghost",
       animation: 300,
       onEnd: this.end.bind(this)
@@ -22,5 +22,3 @@ export default class extends Controller {
     })
   }
 }
-
-// the connection is working in the all projects page

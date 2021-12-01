@@ -4,7 +4,6 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user = current_user
-    # @project.priority = current_user.projects.count + 1
     redirect_to root_path if @project.save!
     # else
     #   render "new"
