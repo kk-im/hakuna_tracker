@@ -4,6 +4,7 @@ import Rails from "@rails/ujs";
 
 export default class extends Controller {
   connect() {
+    console.log("Stimulus se conectó")
     this.sortable = Sortable.create(this.element, {
       ghostClass: "ghost",
       animation: 300,
@@ -12,6 +13,7 @@ export default class extends Controller {
   }
 
   end(event){
+    console.log("Stimulus se movió")
     let id = event.item.dataset.id;
     let data = new FormData();
     data.append("position", event.newIndex + 1);
