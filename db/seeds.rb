@@ -16,7 +16,7 @@ puts "destroying all users and its dependants projects and timelapses"
       client: Faker::TvShows::SiliconValley.company,
       user: @new_user,
       rate: rand(1..19),
-      cost: rand(100..500),
+      cost: 0,
       deadline: Date.today + (rand * 30),
       expected_time: rand(20..80),
       completed: [true, false].sample,
@@ -31,6 +31,8 @@ puts "destroying all users and its dependants projects and timelapses"
         project: @new_project
       )
       @new_timelapse.update(duration: TimeDifference.between(@new_timelapse.start_time, @new_timelapse.end_time).in_minutes)
+      timelapse_cost = ((@new_timelapse.duration / 3600) * @new_project.rate)
+      @new_project.update(cost: @new_project.cost + timelapse_cost )
     end
   end
 end

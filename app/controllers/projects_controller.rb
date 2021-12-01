@@ -98,6 +98,10 @@ class ProjectsController < ApplicationController
     @projects = Project.where(user: current_user, completed: true)
   end
 
+  def reports
+    invoices
+  end
+
   private
 
   def project_params

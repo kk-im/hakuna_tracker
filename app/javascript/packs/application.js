@@ -24,11 +24,12 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import "chartkick/chart.js"
 
 // Internal imports, e.g:
 
 
-  // Call your functions here, e.g:
+// Call your functions here, e.g:
 
 import { timing } from '../plugins/init_timer';
 import { Application } from "stimulus";
@@ -40,6 +41,6 @@ const context = require.context("../controllers", true, /\.js$/)
 application.load(definitionsFromContext(context))
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  timing();
+    // Call your functions here, e.g:
+    timing();
 });

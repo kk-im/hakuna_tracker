@@ -1,0 +1,10 @@
+<div class="main main-signed-in">
+  <h1 class="index-header">Reports page</h1>
+  <h2 class="index-section">Billing per customer</h2>
+  <%= bar_chart Project.where(user: current_user).group(:client).sum(:cost), prefix: "$", thousands: ",", round: 2 %>
+  <hr>
+  <%= line_chart Project.group_by_day(:deadline).where(user: current_user).count %>
+
+
+
+</div>

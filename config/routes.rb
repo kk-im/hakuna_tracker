@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     collection do
       get :clients
       get :invoices
+      get :reports
     end
   end
 
