@@ -1,0 +1,74 @@
+<div class="main">
+
+  <%# Here is the home header %>
+  <div class="home-header">
+    <%# Here is the main Hakuna logo %>
+    <%= link_to image_tag('logo.svg'), root_path, class: 'logo-home' %>
+
+    <%# Here are individual pages showing descriptions of the app %>
+    <div class="header-links">
+      <%= link_to "About", about_path %>
+      <a href="">Features</a>
+      <a href="">Pricing</a>
+    </div>
+
+    <%# Here are links where the user can log in %>
+    <div class="header-authentication-links">
+      <%= link_to "Sign In", new_user_session_path, class: 'hero-link' %>
+      <%= link_to "Get Started", new_user_registration_path, class: 'hero-link' %>
+    </div>
+  </div>
+
+  <%# Container for about page content %>
+  <div class="about">
+    <%# About page hero %>
+    <div class="about-hero">
+      <%# Here is the animation for the about page %>
+      <div class="a-hero-right">
+      </div>
+
+      <div class="a-hero-left">
+        <h2>Freelancing has never felt so... <span class="font-italic">free</span></h2>
+      </div>
+    </div>
+
+    <%# About Page supporting %>
+    <div class="about-content">
+      <%# Content section 1 %>
+      <div class="about-content-section pl-5">
+        <div class="w-25 h-100 about-content-image" id="about-content-1"></div>
+        <div class="about-content-section-text">
+          <h2>Untracked hours, inaccurate timesheets.</h2>
+          <h4>Use our simple, sleek timetracker to keep track of your worked hours (including an in-built Pomodoro tracker to maximise your productivity levels)</h4>
+        </div>
+      </div>
+
+      <div class="about-content-section justify-content-end pr-5">
+        <div class="about-content-section-text text-right">
+          <h2>Bittersweet client relationships.</h2>
+          <h4>Business is business - but why so serious? Make professional interaction fun with our meme-fied invoice generator.</h4>
+        </div>
+        <div class="w-25 h-100 about-content-image" id="about-content-2"></div>
+      </div>
+
+      <div class="about-content-section pl-5">
+        <div class="w-25 h-100 about-content-image" id="about-content-3"></div>
+        <div class="about-content-section-text d-flex align-middle">
+          <h2>Hours on hours of manual tracking</h2>
+          <h4>Time is money...money is time...and we don't have enough of either.</h4>
+        </div>
+      </div>
+
+  </div>
+
+  <div class="home-footer">
+    <p>&copy; 2021 Hakuna — All Rights Reserved</p>
+
+    <div class="footer-icons">
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="far fa-envelope"></i>
+    </div>
+  </div>
+
+</div>

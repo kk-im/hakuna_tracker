@@ -13,7 +13,6 @@
   <body>
     <% if user_signed_in? %>
       <%= render 'shared/sidebar' %>
-
     <% end %>
     <%= yield %>
     <%= render 'shared/flashes' %>

@@ -15,10 +15,10 @@
     <div class="sidebar-pair"><i class="far fa-chart-bar"></i><a href="" class="sidebar-link">Reports</a></div>
     <div class="sidebar-pair"><i class="fas fa-file-invoice-dollar"></i><%= link_to "Invoices", invoices_projects_path, class: 'sidebar-link' %></div>
   </div>
-  <div class="sidebar-section top-border">
+  <%# <div class="sidebar-section top-border">
     <h4 class="sidebar-title">Info</h4>
-    <div class="sidebar-pair"><i class="fas fa-circle"></i><a href="" class="sidebar-link">About</a></div>
-  </div>
+    <div class="sidebar-pair"><i class="fas fa-circle"></i><%= link_to "About", about_path, class: 'sidebar-link' %></div>
+  <%# </div> %>
 
   <div class="sidebar-modal">
     <%= render partial: 'projects/new', locals: {new_project: @new_project} %>
