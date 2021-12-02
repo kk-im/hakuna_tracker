@@ -3,6 +3,10 @@
 @import "devise-form";
 @import "show";
 
+html, body {
+  min-height: 100%;
+}
+
 body {
   background-color: $taupe;
   font-family: $inter;

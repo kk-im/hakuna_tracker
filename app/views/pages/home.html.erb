@@ -8,20 +8,19 @@
 
       <div class="home-header">
         <%# Here is the main Hakuna logo %>
-        <div class="logo-home">
-        </div>
+       <%= link_to image_tag('logo.svg'), root_path, class: 'logo-home' %>
 
         <%# Here are individual pages showing descriptions of the app %>
         <div class="header-links">
-          <a href="">Discover</a>
+          <%= link_to "About", about_path %>
           <a href="">Features</a>
           <a href="">Pricing</a>
         </div>
 
         <%# Here are links where the user can log in %>
-        <div class=header-authentication-links>
-          <%= link_to "Sign In", new_user_session_path, class: 'new-user-home-link hero-link' %>
-          <%= link_to "Get Started", new_user_registration_path, class: 'new-user-home-link hero-link' %>
+        <div class="header-authentication-links">
+          <%= link_to "Sign In", new_user_session_path, class: 'hero-link' %>
+          <%= link_to "Get Started", new_user_registration_path, class: 'hero-link' %>
         </div>
       </div>
 
