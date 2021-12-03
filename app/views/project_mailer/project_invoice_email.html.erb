@@ -1,6 +1,17 @@
-<h1>Hi,<%= @project.client %><h1>
-<h2>Here is your invoice</h2>
 
-<p><%= link_to "Your invoice", project_url(@project, format: :pdf) %></p>
+<div>
+  <div>
+    <%= image_tag("logo.png") %>
+  </div>
 
-<p>See ya!</p>
+
+  <div>
+    <h1>Hi,<%= @project.client %><h1>
+
+    <h2>Here is your invoice of the project <%= @project.name %>, you can click on the link to see it</h2>
+
+    <p><%= link_to "Your invoice", project_url(@project, format: :pdf) %></p>
+
+    <p>See ya!</p>
+  </div>
+</div>
