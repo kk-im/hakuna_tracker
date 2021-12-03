@@ -6,4 +6,9 @@
 @import "projectcard";
 @import "tracker";
 @import "sortable";
-@import "search"
+@import "search";
+
+// General styles
+.tooltip {
+   pointer-events: none;
+}

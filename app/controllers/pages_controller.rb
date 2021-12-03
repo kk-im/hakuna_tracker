@@ -15,7 +15,11 @@ class PagesController < ApplicationController
   end
 
   def about
-    # @new_project  = Project.new
+    @new_project  = Project.new
+  end
+
+  def pricing
+    @new_project  = Project.new
   end
 
   def all_projects

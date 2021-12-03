@@ -1,14 +1,6 @@
 require 'json'
 require 'open-uri'
 class ProjectsController < ApplicationController
-  def create
-    @project = Project.new(project_params)
-    @project.user = current_user
-    redirect_to root_path if @project.save!
-    # else
-    #   render "new"
-    # end
-  end
 
   def sort
     @project = Project.find(params[:id])
@@ -46,6 +38,16 @@ class ProjectsController < ApplicationController
         render pdf: "#{@project.name}", template: "projects/pdf.html.erb"   # Excluding ".pdf" extension.
       end
     end
+  end
+
+
+  def create
+    @project = Project.new(project_params)
+    @project.user = current_user
+    redirect_to root_path if @project.save!
+    # else
+    #   render "new"
+    # end
   end
 
   def send_email
