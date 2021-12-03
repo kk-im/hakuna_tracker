@@ -76,7 +76,7 @@
       <div><p class="grey-text margin-auto"><%= project.expected_time %>hr</p></div>
       <div><p class="grey-text margin-auto"><%= project.rate %></p></div>
       <div class="edit-modal"><%= render 'projects/edit', project: project %></div>
-      <div class="projects-delete-btn button"><%= link_to "Delete", project_path(project), method: 'delete' %></div>
+      <div class="projects-delete-btn"><p><%= link_to "Delete", project_path(project), method: 'delete' %></p></div>
       <%# <div class="card-arrow"><i class="fas fa-caret-right fa-2x btn-play"></i></div> %>
     </div>
  <% end %>
