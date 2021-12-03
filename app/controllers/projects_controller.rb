@@ -26,6 +26,7 @@ class ProjectsController < ApplicationController
     @logs = @project.timelapses.where('duration is not null')
     @total_cost = @logs.sum { |log| (log.duration / 3600) * @project.rate }
     @client_email = @project.email
+    @project.user = current_user
 
     url = 'https://api.imgflip.com/get_memes'
     memes_url = URI.open(url).read
