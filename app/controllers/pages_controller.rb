@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:home, :about, :pricing]
 
   def home
     if user_signed_in?
@@ -14,9 +14,13 @@ class PagesController < ApplicationController
     end
   end
 
+  def about
+    # @new_project  = Project.new
+  end
+
   def all_projects
     if user_signed_in?
-      @new_project = Project.new
+      @new_project  = Project.new
       search_in_all_projects
     end
   end

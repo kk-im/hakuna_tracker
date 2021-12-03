@@ -43,8 +43,6 @@
 
 .logo-home {
   height: 60px;
-  background: url(logo.svg);
-  background-size: cover;
   width: 250px;
 }
 
@@ -122,20 +120,217 @@
 
 }
 
-.new-user-home-link {
-  padding: 10px 30px;
-}
-
 .hero-link {
   background: $brown;
   border-radius: 50px;
   text-align: center;
+  padding: 10px 30px;
   color: #fff;
   cursor: pointer;
   transition: 0.2s;
 
   &:hover {
-    transform:scale(1.1);
+    transform: scale(1.1);
     color: #fff;
   }
+}
+
+// Footer styles
+
+.home-footer {
+  height: 7vh;
+  width: 100vw;
+  display: flex;
+  padding-left: 50px;
+  padding-right: 25px;
+  justify-content: space-between;
+
+  p {
+    margin: auto 0;
+  }
+}
+
+.footer-icons {
+  display: flex;
+  align-items: center;
+
+  i {
+    font-size: 25px;
+    margin-right: 20px;
+  }
+}
+
+// About page styles
+.about {
+  background: url('about-page.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+
+.about-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100vw;
+  height: 100%;
+}
+
+.a-hero-right {
+  background-image: url('remote-work.gif');
+  background-size: cover;
+  width: 70%;
+  height: 100%;
+}
+
+.a-hero-left {
+  width: 20%;
+
+  h2 {
+    font-size: 4em;
+    font-weight: 300;
+  }
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #E3DCD7;
+}
+
+.about-content-section {
+  height: 450px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+  background-color: #E3DCD7;
+}
+
+.about-content-section-text {
+  width: 40%;
+  display: flex;
+  justify-items:center;
+  flex-direction: column;
+
+  h4 {
+    font-weight: 300;
+  }
+}
+
+
+#about-content-1 {
+  background: url(about-time.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#about-content-2 {
+  background: url(about-client.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#about-content-3 {
+  background: url(about-hours.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+// Pricing page styles
+.pricing {
+  background: url(pricing.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+
+.pricing-hero {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  height: 100%;
+}
+
+.p-hero-bottom {
+  background-image: url(pricing.gif);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 60%;
+  width: 100%;
+}
+
+.p-hero-top {
+  text-align: center;
+  margin-top: 10%;
+
+  h2 {
+    font-size: 4em;
+    font-weight: 300;
+  }
+}
+
+.pricing-content {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    padding: 150px;
+
+    h2 {
+      margin-bottom: 50px;
+    }
+
+    h3 {
+      font-weight: 300;
+      margin-bottom: 35px;
+    }
+
+    .pricing-price {
+      height:150px;
+      margin-bottom: 30px;
+    }
+
+    h4 {
+      font-size: 5rem;
+    }
+
+    h5 {
+      font-weight: 300;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    .pricing-details {
+      height: 150px;
+    }
+
+    a {
+      font-size: 1.2em;
+    }
+}
+
+.pricing-box {
+  width: 25%;
 }

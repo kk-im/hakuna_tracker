@@ -10,15 +10,13 @@
     <h3 class="gray pl-3"><%= @project.email %></h3>
   </div>
 
-  <div class="project-show">
-    <a class="project-show-button"><%= @status %></a>
-  </div>
+  <p class="status-button button mb-5"><%= @status %></p>
 
   <div class="project-show project-details">
-    <p><span class="gray">Due date: </span><%= @project.deadline %></p>
-    <p><span class="gray">Rate: </span>$<%= @project.rate %>/hour</p>
-    <%= render 'edit', project: @project, class: 'project-show-button' %>
-    <button><%= link_to 'Delete', project_path, method: 'delete', class: 'project-show-button' %></button>
+    <p>Due Date:<span class="gray ml-3"><%= @project.deadline %></span></p>
+    <p>Rate: <span class="gray ml-3">$<%= @project.rate %>/hour</span></p>
+    <%= render 'edit', project: @project, class: 'projects-edit-btn' %>
+    <%= link_to 'Delete', project_path, method: 'delete', class: 'project-show-button' %>
   </div>
 
   <h2 class="project-name">Log</h2>
@@ -27,8 +25,8 @@
 
   <p><%= @total_cost.round(2) %></p>
     <div class="project-action-buttons">
-      <%= link_to 'Mark as completed', complete_project_path(@project), class: 'project-show-button mr-4', method: 'patch' %>
-      <%= link_to 'Generate invoice', project_path(@project, format: :pdf), class: 'project-show-button mr-4', target: "_blank" %> <%# Boton para PDF by: Mau:)  %>
-      <%= link_to 'Send by email', send_email_project_path(@project), class: "project-show-button" %>
+      <%= link_to 'Mark As Incomplete', complete_project_path(@project), class: 'button project-action-button',id: 'status-button', method: 'patch' %>
+      <%= link_to 'Generate Invoice', project_path(@project, format: :pdf), class: 'button project-action-button', id: 'invoice-button', target: "_blank" %> <%# Boton para PDF by: Mau:)  %>
+      <%= link_to 'Send Email To Client', send_email_project_path(@project), class: "button project-action-button", id: 'email-button' %>
     </div>
   </div>

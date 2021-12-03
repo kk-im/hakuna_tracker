@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get 'pages/all_projects', to: 'pages#all_projects', as: :all_projects
   get 'projects/clients/:client', to: 'projects#client_projects', as: :client_projects
   get 'pages/completed_projects', to: 'pages#completed_projects', as: :completed_projects
+  get 'pages/about', to: 'pages#about', as: :about
+  get 'pages/pricing', to: 'pages#pricing', as: :pricing
   # get 'projects/invoices', to: 'projects#invoices', as: :invoices
 
 end
