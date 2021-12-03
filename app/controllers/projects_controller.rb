@@ -100,6 +100,13 @@ class ProjectsController < ApplicationController
 
   def reports
     invoices
+    @projects_per_costumer = Project.where(user: current_user).group(:client).count
+    @billing_per_costumer = Project.where(user: current_user).group(:client).sum(:cost)
+    @dates_for_timeline = []
+    @projects_for_timeline = Project.where(user: current_user)
+    @projects_for_timeline.each do |project|
+      @dates_for_timeline << [project.name, project.created_at, project.deadline]
+    end
   end
 
   private
