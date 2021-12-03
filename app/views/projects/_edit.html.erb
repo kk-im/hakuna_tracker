@@ -1,39 +1,71 @@
-<%# Toda esta vista tiene código copiado, no revisado %>
 <!-- Button trigger modal -->
-<button type="button" class="project-show-button" data-toggle="modal" data-target="#editModalCenter<%=project.id%>">
+
+<button type="button" data-toggle="modal" data-target="#editModalCenter<%=project.id%>">
+
   Edit
+
 </button>
 
+
+
 <!-- Modal -->
+
 <div class="modal fade" id="editModalCenter<%=project.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
   <div class="modal-dialog modal-dialog-centered" role="document">
+
     <div class="modal-content">
+
       <div class="modal-header">
+
         <div>
+
           <div class="heading-circle"></div>
-          <h4>A Change Of Plans.</h4>
-          <h5>Edit an existing project</h5>
-        </div>
-        <button type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <%# <%= simple_form_for(project) do |f| %>
-      <%= simple_form_for(project, url: project_path(project, return_to: request.fullpath.split("#").first)) do |f| %>
-        <div class="modal-body">
-          <%# <% session["return_to_#{project.id}"] = request.fullpath.split("#").first %>
-          <%= f.input :name, :placeholder => "Project Name"  %>
-          <%= f.input :client, :placeholder => 'Client *' %>
-          <%= f.input :expected_time, :placeholder => "Estimated Time (Hours)", html5: true, input_html: { min: 1 }  %>
-          <%= f.input :deadline, html5: true %>
-          <%= f.input :rate, :label => "Rate ($/hr)" %>
-          <%= f.input :email, :placeholder => "Client email" %>
-          <%= f.input :rate, :placeholder => "Hourly Rate" %>
-        </div>
+
+​          <h4>A Change Of Plans.</h4>
+
+​          <h5>Edit an existing project</h5>
+
+​        </div>
+
+​        <button type="button" data-dismiss="modal" aria-label="Close">
+
+​          <span aria-hidden="true">&times;</span>
+
+​        </button>
+
+​      </div>
+
+      <div class="modal-body">
+
+​       <%= simple_form_for(project, url: project_path(project, return_to: request.fullpath.split("#").first)) do |f| %>
+
+​          <%= f.input :name, :placeholder => "Project Name"  %>
+
+​          <%= f.input :client, :placeholder => 'Client *' %>
+
+​          <%= f.input :expected_time, :placeholder => "Estimated Time (Hours)", html5: true, input_html: { min: 1 }  %>
+
+​          <%= f.input :deadline, html5: true %>
+
+​          <%# <%= f.input :rate, :label => "Rate ($/hr)" %>
+
+​          <%= f.input :email, :placeholder => "Client email" %>
+
+​          <%= f.input :rate, :placeholder => "Hourly Rate" %>
+
+​        </div>
+
         <div class="modal-footer">
-          <%= f.submit "Save", class: "modal-button" %>
-        </div>
-      <% end %>
-    </div>
+
+​          <%= f.submit "Save", class: "modal-button" %>
+
+​        </div>
+
+​      <% end %>
+
+​    </div>
+
   </div>
+
 </div>
