@@ -22,7 +22,7 @@ class TimelapsesController < ApplicationController
         @timelapse.project.reload
       end
       timelapse_cost = ((@timelapse.duration / 3600) * @timelapse.project.rate)
-      @timelapse.project.cost += timelapse_cost
+      @timelapse.project.update(cost: @timelapse.project.cost + timelapse_cost)
     else
       @timelapse.start_time = Time.now
     end

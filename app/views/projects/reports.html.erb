@@ -1,0 +1,17 @@
+<div class="main main-signed-in">
+  <h1 class="index-header">Reports page</h1>
+  <h2 class="index-section">Billing per customer</h2>
+  <%= bar_chart @billing_per_costumer, prefix: "$", thousands: ",", round: 2, colors: ["#E45231"] %>
+  <hr>
+
+  <h2 class="index-section">Projects per customer</h2>
+  <%= pie_chart @projects_per_costumer %>
+  <hr>
+
+
+  <h2 class="index-section">Timeline for projects</h2>
+  <%= timeline @dates_for_timeline %>
+
+
+
+</div>
