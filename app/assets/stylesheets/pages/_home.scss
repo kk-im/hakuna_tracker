@@ -246,3 +246,91 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+// Pricing page styles
+.pricing {
+  background: url(pricing.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+
+.pricing-hero {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  height: 100%;
+}
+
+.p-hero-bottom {
+  background-image: url(pricing.gif);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 60%;
+  width: 100%;
+}
+
+.p-hero-top {
+  text-align: center;
+  margin-top: 10%;
+
+  h2 {
+    font-size: 4em;
+    font-weight: 300;
+  }
+}
+
+.pricing-content {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    padding: 150px;
+
+    h2 {
+      margin-bottom: 50px;
+    }
+
+    h3 {
+      font-weight: 300;
+      margin-bottom: 35px;
+    }
+
+    .pricing-price {
+      height:150px;
+      margin-bottom: 30px;
+    }
+
+    h4 {
+      font-size: 5rem;
+    }
+
+    h5 {
+      font-weight: 300;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    .pricing-details {
+      height: 150px;
+    }
+
+    a {
+      font-size: 1.2em;
+    }
+}
+
+.pricing-box {
+  width: 25%;
+}

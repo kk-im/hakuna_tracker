@@ -1,12 +1,16 @@
 .project-show {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 
   h1 {
     color: $orange;
     font-size: 0.85em;
     text-transform: uppercase;
     margin-bottom: 30px;
+  }
+
+  h2, h3 {
+    font-weight: 300;
   }
 
   .project-name {
@@ -16,11 +20,6 @@
   .gray {
     color: $medium-gray;
   }
-}
-
-.project-show-button {
-  padding: 5px 15px;
-  border-radius: 50px;
 }
 
 .project-details {
@@ -48,7 +47,7 @@
 }
 
 .index-grid {
-  grid-template-columns: 225px 200px 125px 100px repeat(3, 125px);
+  grid-template-columns: repeat(2, 275px) 125px 100px repeat(3, 125px);
 }
 
 .invoices-grid {
@@ -72,7 +71,7 @@
 }
 
 .client-grid {
-  grid-template-columns: 50% 150px repeat(3, 125px);
+  grid-template-columns: 40% 250px repeat(3, 125px);
 }
 
 .bottom-border {

@@ -13,6 +13,38 @@
   }
 }
 
-.btn-play {
-  color: $orange;
+.status-button {
+  background-color: #000;
+  color: #fff;
+  width: 150px;
+}
+
+.button {
+  text-align: center;
+  padding: 5px 15px;
+  border-radius: 50px;
+}
+
+
+
+.project-action-button {
+  width: 200px;
+  transition: 0.1s;
+  margin-right: 30px;
+
+   &:hover {
+    transform: scale(1.1);
+  }
+}
+
+#status-button {
+ background-color: #DFD7CD;
+}
+
+#invoice-button {
+ background-color: #D3C9BD;
+}
+
+#email-button {
+  background-color: #B9AFA2;
 }

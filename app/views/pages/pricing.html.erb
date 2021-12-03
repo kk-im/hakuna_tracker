@@ -1,0 +1,80 @@
+<div class="main">
+
+  <%# Here is the home header %>
+  <div class="home-header">
+    <%# Here is the main Hakuna logo %>
+    <%= link_to image_tag('logo.svg'), root_path, class: 'logo-home' %>
+
+    <%# Here are individual pages showing descriptions of the app %>
+    <div class="header-links">
+      <%= link_to "About", about_path %>
+      <a href="">Features</a>
+      <%= link_to "Pricing", pricing_path %>
+    </div>
+
+    <%# Here are links where the user can log in %>
+    <div class="header-authentication-links">
+      <%= link_to "Sign In", new_user_session_path, class: 'hero-link' %>
+      <%= link_to "Get Started", new_user_registration_path, class: 'hero-link' %>
+    </div>
+  </div>
+
+  <%# Container for about page content %>
+  <div class="pricing">
+    <%# About page hero %>
+    <div class="pricing-hero">
+
+      <div class="p-hero-top">
+        <h2>Pricing Plans</h2>
+        <h4>Don’t give us anything until you’re 100% happy.<br>
+        All plans come with a free, 30-day trial of our Premium features.</h4>
+      </div>
+      <%# Here is the animation for the about page %>
+      <div class="p-hero-bottom">
+      </div>
+
+    </div>
+
+    <div class="pricing-content">
+      <div class="pricing-box">
+        <h2>Free</h2>
+        <h3>The first taste of freedom</h3>
+        <div class="pricing-price">
+          <h4>$0</h4>
+        </div>
+        <div class="pricing-details">
+          <p>Unlimited projects<br>
+          Automatically generated invoices<br>
+          Track time on projects<br>
+          Integrated Pomodoro tracker</p>
+        </div>
+        <a href="" class="button status-button">Select</a>
+      </div>
+      <div class="pricing-box">
+        <h2>Premium</h2>
+        <h3>Want more?</h3>
+        <div class="pricing-price">
+          <h4>$5</h4>
+          <h5>Monthly</h5>
+        </div>
+        <div class="pricing-details">
+          <p>Everything in the free version<br>
+          24/7 Team support</p>
+        </div>
+        <a href="" class="button status-button">Select</a>
+      </div>
+
+    </div>
+
+
+  <div class="home-footer">
+    <p>&copy; 2021 Hakuna — All Rights Reserved</p>
+
+    <div class="footer-icons">
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="far fa-envelope"></i>
+    </div>
+  </div>
+
+</div>
