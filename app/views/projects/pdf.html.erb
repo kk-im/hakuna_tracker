@@ -2,17 +2,23 @@
   <style>
     .information{
       padding: 36px;
+      font: sans-serif;
     }
 
     .image-meme{
-      padding: 24px;
+     margin-left: 150px;
+    }
+
+    .image-text{
+      justify-content: center;
     }
 
     .total{
       text-align: right;
-      background-color: #BE7520;
-      font-size: 12px;
+      background-color: #BB473F;
+      font-size: 14px;
       font-weight: normal;
+      font: sans-serif;
       color: #ffffff;
       padding: 4px
     }
@@ -23,7 +29,7 @@
 
   .fl-table {
       border-radius: 5px;
-      font-size: 12px;
+      font-size: 16px;
       font-weight: normal;
       border: none;
       border-collapse: collapse;
@@ -31,6 +37,7 @@
       max-width: 100%;
       white-space: nowrap;
       background-color: white;
+      font: sans-serif;
     }
 
   .fl-table td, .fl-table th {
@@ -40,18 +47,18 @@
 
   .fl-table td {
       border-right: 1px solid #f8f8f8;
-      font-size: 12px;
+      font-size: 14px;
   }
 
   .fl-table thead th {
       color: #ffffff;
-      background: #BE7520;
+      background: #BB473F;
   }
 
 
   .fl-table thead th:nth-child(odd) {
       color: #ffffff;
-      background: #BE7520;
+      background: #BB473F;
   }
 
   .fl-table tr:nth-child(even) {
@@ -63,13 +70,13 @@
 
 
 <div class="invoice">
-  <div>
+  <div class="logo">
     <%= wicked_pdf_image_tag @logo_url %>
   <div>
 
   <div>
     <div class="information">
-      <h2><%= @project.name %></h2>
+      <h2 style="font: sans-serif;"><%= @project.name %></h2>
       <p>Date:<%= Date.today %></p>
       <p>Client: <%= @project.client %></p>
       <p><%= @project.email %></p>
@@ -105,8 +112,8 @@
       <p class= "total">TOTAL($) = <%= @total_cost.round(2) %></p>
     </div>
     <div class="image-meme">
-      <%= wicked_pdf_image_tag @image_meme, style: "width: 400px; height: 300px;" %>
-      <p>Thanks for using Hakuna, enjoy it :)</p>
+      <%= wicked_pdf_image_tag @image_meme, style: "width: auto; height: 400px; object-fit: cover;" %>
+      <p class="image-text">Thanks for using Hakuna, enjoy it :)</p>
     </div>
   </div>
 </div>
