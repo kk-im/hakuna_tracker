@@ -4,7 +4,7 @@
 
   <div class="timetracker-module">
     <%= simple_form_for @timelapse, html: { class:'project-card d-flex justify-content-between align-items-center my-3'} do |f| %>
-      <%= f.select(:project_id, current_user.current_user_projects, {include_blank: "Select a project"}, { :class => 'timetracker-project' }) %>
+      <%= f.select(:project_id, current_user.current_user_projects, {include_blank: "Select a project"}, { :class => 'timetracker-project select2' }) %>
       <%= f.input :description, wrapper_html: { class: 'fontsizelarge' }, input_html: { class: 'timetracker-description' }, as: :text, placeholder: 'Write a description of your tasks', label: false %>
       <% unless @timelapse.id %>
         <%= f.button :submit, 'Save', class: 'timetracker-submit' do %>

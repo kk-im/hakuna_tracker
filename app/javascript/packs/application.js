@@ -34,6 +34,7 @@ import "chartkick/chart.js"
 import { timing } from '../plugins/init_timer';
 import { Application } from "stimulus";
 import { definitionsFromContext } from "stimulus/webpack-helpers";
+import { initSelect2 } from '../plugins/init_select2';
 
 // Stimulus starter
 const application = Application.start()
@@ -43,4 +44,5 @@ application.load(definitionsFromContext(context))
 document.addEventListener('turbolinks:load', () => {
     // Call your functions here, e.g:
     timing();
+    initSelect2();
 });
