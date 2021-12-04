@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
   def show
     @new_project = Project.new
     @project = Project.find(params[:id])
+    @toogle_complete = @project.completed ? "Mark as incomplete" : "Mark as complete"
     @status = @project.completed ? "Complete" : "Incomplete"
     @logs = @project.timelapses.where('duration is not null')
     @total_cost = @logs.sum { |log| (log.duration / 3600) * @project.rate }
@@ -62,6 +63,7 @@ class ProjectsController < ApplicationController
 
   def update
     # raise
+    # byebug
     @project = Project.find(params[:id])
     @project.update(project_params)
     # redirect_to project_path(@project)
@@ -74,10 +76,15 @@ class ProjectsController < ApplicationController
     redirect_to root_path
   end
 
-  def complete
+  def toogle_complete
     @project = Project.find(params[:id])
-    @project.update(completed: true)
-    flash[:notice] = "The task has been completed"
+    if @project.completed
+      @project.update(completed: false)
+      flash[:notice] = "The task isn't completed"
+    else
+      @project.update(completed: true)
+      flash[:notice] = "The task has been completed"
+    end
     redirect_to project_path(@project)
   end
 

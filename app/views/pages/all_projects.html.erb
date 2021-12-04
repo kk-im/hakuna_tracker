@@ -31,7 +31,7 @@
 
   <div class="sortable" data-controller="persist-priority" data-persist-priority-url="/projects/:id/sort">
     <% @projects.each do |project| %>
-        < data-id="<%= project.id %>" class="index-grid grid project-item" id="project-<%=project.id %>">
+        <div data-id="<%= project.id %>" class="index-grid grid project-item" id="project-<%=project.id %>">
           <div><p class="margin-auto"><%= link_to project.name, project_path(project) %></p></div>
           <div><p class="grey-text margin-auto"><%= project.client %></p></div>
           <div><p class="grey-text margin-auto"><%= project.deadline %></p></div>
