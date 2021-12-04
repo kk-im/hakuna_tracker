@@ -1,0 +1,25 @@
+<div class="timetracker">
+
+  <p>What are we working on today?</p>
+
+  <div class="timetracker-module">
+    <%= simple_form_for @timelapse, html: { class:'project-card d-flex justify-content-between align-items-center my-3'} do |f| %>
+      <%= f.hidden_field :project_id, :value => params[:id] %>
+      <%= f.hidden_field :show_timetracker, :value => true %>
+      <%= f.input :description, wrapper_html: { class: 'fontsizelarge' }, input_html: { class: 'timetracker-description' }, as: :text, placeholder: 'Write a description of your tasks', label: false %>
+      <% unless @timelapse.id %>
+        <%= f.button :submit, 'Save', class: 'timetracker-submit' do %>
+          <i class="fas fa-caret-right fa-2x btn-play"></i>
+        <% end %>
+      <% end %>
+      <div class="card-project" id="countdown" data-start="<%= @timelapse.start_time %>" data-end= "<%= @timelapse.end_time %>"></div>
+      <% if @timelapse.id %>
+        <% if @timelapse.start_time.nil? %>
+          <button type="submit" id="start-<%= @timelapse.id %>"><i class="fas fa-caret-right fa-2x btn-play"></i></button>
+        <% elsif @timelapse.end_time.nil? %>
+          <button type="submit" id="start-<%= @timelapse.id %>"><i class="fas fa-stop fa-1x btn-play"></i></button>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
