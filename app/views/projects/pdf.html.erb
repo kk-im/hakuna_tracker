@@ -1,112 +1,187 @@
 <head>
-  <style>
-    .information{
-      padding: 36px;
-    }
+		<meta charset="utf-8" />
+		<title><%= @project.name + " invoice" %></title>
 
-    .image-meme{
-      padding: 24px;
-    }
+		<style>
+			.invoice-box {
+				max-width: 800px;
+				margin: auto;
+				padding: 30px;
+				font-size: 16px;
+				line-height: 24px;
+				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+				color: #555;
+			}
 
-    .total{
-      text-align: right;
-      background-color: #BE7520;
-      font-size: 12px;
-      font-weight: normal;
-      color: #ffffff;
-      padding: 4px
-    }
+			.invoice-box table {
+				width: 100%;
+				line-height: inherit;
+				text-align: left;
+			}
 
-      .table-wrapper{
-      margin: 10px 70px 70px;
-    }
+			.invoice-box table td {
+				padding: 5px;
+				vertical-align: top;
+			}
 
-  .fl-table {
-      border-radius: 5px;
-      font-size: 12px;
-      font-weight: normal;
-      border: none;
-      border-collapse: collapse;
-      width: 100%;
-      max-width: 100%;
-      white-space: nowrap;
-      background-color: white;
-    }
+			.invoice-box table tr td:nth-child(2) {
+				text-align: right;
+			}
 
-  .fl-table td, .fl-table th {
-      text-align: center;
-      padding: 8px;
-  }
+			.invoice-box table tr.top table td {
+				padding-bottom: 20px;
+			}
 
-  .fl-table td {
-      border-right: 1px solid #f8f8f8;
-      font-size: 12px;
-  }
+			.invoice-box table tr.top table td.title {
+				font-size: 45px;
+				line-height: 45px;
+				color: #333;
+			}
 
-  .fl-table thead th {
-      color: #ffffff;
-      background: #BE7520;
-  }
+			.invoice-box table tr.information table td {
+				padding-bottom: 40px;
+			}
 
+			.invoice-box table tr.heading td {
+				background: #D3C9BD;
+				border-bottom: 1px solid #ddd;
+				font-weight: bold;
+        text-align: center;
+			}
 
-  .fl-table thead th:nth-child(odd) {
-      color: #ffffff;
-      background: #BE7520;
-  }
+			.invoice-box table tr.item td {
+				border-bottom: 1px solid #eeeee;
+        text-align: center;
+			}
 
-  .fl-table tr:nth-child(even) {
-      background: #F8F8F8;
-  }
+			.invoice-box table tr.item.last td {
+				border-bottom: none;
+			}
 
-  </style>
-</head>
+			.invoice-box table tr.total td:nth-child(2) {
+				border-top: 2px solid #eee;
+				font-weight: bold;
+			}
 
+			@media only screen and (max-width: 600px) {
+				.invoice-box table tr.top table td {
+					width: 100%;
+					display: block;
+					text-align: center;
+				}
 
-<div class="invoice">
-  <div>
-    <%= wicked_pdf_image_tag @logo_url %>
-  <div>
+				.invoice-box table tr.information table td {
+					width: 100%;
+					display: block;
+					text-align: center;
+				}
+			}
 
-  <div>
-    <div class="information">
-      <h2><%= @project.name %></h2>
-      <p>Date:<%= Date.today %></p>
-      <p>Client: <%= @project.client %></p>
-      <p><%= @project.email %></p>
-    </div>
-    <div>
-    </div>
+			/** RTL **/
+			.invoice-box.rtl {
+				direction: rtl;
+				font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+			}
+
+			.invoice-box.rtl table {
+				text-align: right;
+			}
+
+			.invoice-box.rtl table tr td:nth-child(2) {
+				text-align: left;
+			}
+
+      .meme {
+        height: 400px;
+        width: auto;
+        object-fit: cover;
+        padding: 5px;
+        border: 5px double rgba(164,69,8,0.46);
+        border-radius: 15px;
+      }
+
+      .thanks-pdf{
+        position: bottom;
+        height: 50px;
+      }
+
+      .thanks-pdf p{
+        text-align: center;
+        font-family: 'Verdana' ;
+        font-size: 20px;
+        padding: 50px;
+      }
+		</style>
+	</head>
+
+  <div class="invoice-box">
+    <table cellpadding="0" cellspacing="0">
+      <tr class="top">
+        <td colspan="2">
+            <div class="image-meme"><%= wicked_pdf_image_tag @logo_url %>
+            </div>
+        </td>
+        <td colspan="3">
+          <%= @project.name + " invoice" %> <br />
+          Created: <%= Date.today %> <br />
+          Due: <%= @project.deadline %>
+        </td>
+      </tr>
+
+      <tr class="information">
+        <td colspan="2">
+          Hakuna Tracker, Inc.<br />
+          12345 Sunny Road<br />
+          Sunnyville, CA 12345
+        </td>
+
+        <td colspan="3">
+          Project: <%= @project.name %><br />
+          Client: <%= @project.client %><br />
+          Email: <%= @client_email %>
+        </td>
+      </tr>
+
+      <tr style="height: 40px">
+      </tr>
+
+      <tr class="heading">
+        <td>Item</td>
+        <td>Date</td>
+        <td>Notes</td>
+        <td>Time spend</td>
+        <td>Price</td>
+      </tr>
+
+      <% @logs.each_with_index do |log, index| %>
+      <tr class="item">
+          <td><%= index + 1 %></td>
+          <td><%= log.start_time.strftime("%d %B %Y") %></td>
+          <td><%= log.description %></td>
+          <td><%= Time.at(log.duration).utc.strftime('%H hr : %M m : %S s') %></td>
+          <td>$ <%= ((log.duration/3600) * @project.rate).round(2) %></td>
+      </tr>
+        <% end %>
+
+      <tr class="total">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Total: $</td>
+        <td><%= @total_cost.round(2) %></td>
+      </tr>
+
+      <tr style="height: 40px">
+      </tr>
+
+      <tr>
+        <td colspan="5" style="text-align: center">
+          <%= wicked_pdf_image_tag @image_meme, class: "meme" %>
+        </td>
+      </tr>
+    </table>
   </div>
 
-  <div>
-    <div class="table-wrapper">
-      <table class="fl-table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">DATE</th>
-            <th scope="col">NOTES</th>
-            <th scope="col">TIME LAPSED</th>
-            <th scope="col">$</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @logs.each_with_index do |log, index| %>
-            <tr>
-              <th scope="row"><%= index + 1 %></th>
-              <td><%= log.start_time.strftime("%d %B %Y") %></td>
-              <td><%= log.description %></td>
-              <td><%= Time.at(log.duration).utc.strftime('%H hr : %M m : %S s') %></td>
-              <td>$ <%= ((log.duration/3600) * @project.rate).round(2) %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <p class= "total">TOTAL($) = <%= @total_cost.round(2) %></p>
-    </div>
-    <div class="image-meme">
-      <%= wicked_pdf_image_tag @image_meme, style: "width: 400px; height: 300px;" %>
-      <p>Thanks for using Hakuna, enjoy it :)</p>
-    </div>
-  </div>
+<div class="thanks-pdf">
+  <p>Thank's for using Hakuna Tracker &#174</p>
 </div>
