@@ -12,6 +12,11 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    if params[:timelapse_id].present?
+      @timelapse = Timelapse.find(params[:timelapse_id])
+    else
+      @timelapse = Timelapse.new
+    end
     @new_project = Project.new
     @project = Project.find(params[:id])
     @toogle_complete = @project.completed ? "Mark as incomplete" : "Mark as complete"

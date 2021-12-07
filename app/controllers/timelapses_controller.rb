@@ -5,7 +5,11 @@ class TimelapsesController < ApplicationController
     @project = Project.find(params[:timelapse][:project_id])
     @timelapse.project = @project
     if @timelapse.save
-      redirect_to "#{root_path}?timelapse_id=#{@timelapse.id}"
+      if params[:timelapse][:show_timetracker]
+        redirect_to project_path(@project, timelapse_id: @timelapse.id)
+      else
+        redirect_to "#{root_path}?timelapse_id=#{@timelapse.id}"
+      end
     else
       render 'pages/home'
     end
@@ -28,7 +32,11 @@ class TimelapsesController < ApplicationController
     end
     @timelapse.description = params[:description] if params[:description]
     @timelapse.save
-    redirect_to "#{root_path}?timelapse_id=#{@timelapse.id}"
+    if params[:timelapse][:show_timetracker]
+      redirect_to project_path(params[:timelapse][:project_id], timelapse_id: @timelapse.id)
+    else
+      redirect_to "#{root_path}?timelapse_id=#{@timelapse.id}"
+    end
   end
 
   private
