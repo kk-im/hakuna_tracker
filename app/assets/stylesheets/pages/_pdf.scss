@@ -1,6 +1,68 @@
-.pdf-text {
-  color: red;
-  background-color: rgb(255, 115, 0) ;
-  text-align:left;
+.information{
+      padding: 36px;
+      font: sans-serif;
+    }
 
-}
+    .image-meme{
+     margin-left: 100px;
+     margin-right: auti;
+     width: auto;
+     height: 400px;
+     object-fit: cover;
+    }
+
+    .image-text{
+      margin-left: 350px;
+    }
+
+    .total{
+      text-align: right;
+      background-color: #BB473F;
+      font-size: 14px;
+      font-weight: normal;
+      font: sans-serif;
+      color: #ffffff;
+      padding: 4px;
+    }
+
+      .table-wrapper{
+      margin: 10px 70px 70px;
+    }
+
+  .fl-table {
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: normal;
+      border: none;
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 100%;
+      white-space: nowrap;
+      background-color: white;
+      font: sans-serif;
+    }
+
+  .fl-table td, .fl-table th {
+      text-align: center;
+      padding: 8px;
+  }
+
+  .fl-table td {
+      border-right: 1px solid #f8f8f8;
+      font-size: 14px;
+  }
+
+  .fl-table thead th {
+      color: #ffffff;
+      background: #BB473F;
+  }
+
+
+  .fl-table thead th:nth-child(odd) {
+      color: #ffffff;
+      background: #BB473F;
+  }
+
+  .fl-table tr:nth-child(even) {
+      background: #F8F8F8;
+  }
