@@ -2,7 +2,6 @@
   <% unless user_signed_in? %>
     <%# This is the container for the whole homepage %>
     <div class="main new-user-home overflow-hidden">
-
       <div class="new-user-img">
       </div>
 
@@ -26,7 +25,6 @@
 
       <%# Here the hero section begins %>
       <div class="hero">
-
         <div class="hero-container">
           <div class="hero-content hero-left">
             <h2>No worries,<br>For the rest of your freelancing days</h2>
@@ -35,7 +33,7 @@
             <%= link_to "Get Started", new_user_registration_path, class: 'new-user-home-link hero-link' %>
           </div>
 
-          <div class="hero-content hero-right">
+          <div class="hero-right">
           </div>
         </div>
 

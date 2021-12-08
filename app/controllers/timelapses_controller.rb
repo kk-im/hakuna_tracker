@@ -5,7 +5,11 @@ class TimelapsesController < ApplicationController
     @project = Project.find(params[:timelapse][:project_id])
     @timelapse.project = @project
     if @timelapse.save
-      redirect_to "#{root_path}?timelapse_id=#{@timelapse.id}"
+      if params[:timelapse][:show_timetracker]
+        redirect_to project_path(@project, timelapse_id: @timelapse.id)
+      else
+        redirect_to "#{root_path}?timelapse_id=#{@timelapse.id}"
+      end
     else
       render 'pages/home'
     end
@@ -21,14 +25,18 @@ class TimelapsesController < ApplicationController
         @timelapse.project.update(cost: 0)
         @timelapse.project.reload
       end
-      timelapse_cost = ((@timelapse.duration / 3600) * @timelapse.project.rate)
+      timelapse_cost = ((@timelapse.duration / 3600) * @timelapse.project.rate).round(2)
       @timelapse.project.update(cost: @timelapse.project.cost + timelapse_cost)
     else
       @timelapse.start_time = Time.now
     end
     @timelapse.description = params[:description] if params[:description]
     @timelapse.save
-    redirect_to "#{root_path}?timelapse_id=#{@timelapse.id}"
+    if params[:timelapse][:show_timetracker]
+      redirect_to project_path(params[:timelapse][:project_id], timelapse_id: @timelapse.id)
+    else
+      redirect_to "#{root_path}?timelapse_id=#{@timelapse.id}"
+    end
   end
 
   private
@@ -37,12 +45,3 @@ class TimelapsesController < ApplicationController
     params.require(:timelapse).permit(:description)
   end
 end
-
-# rails console commands to test update action
-# User.create!(email: "test2@test.com", password: "123456")
-# Project.create!(user: User.last, name: "Special feature", client: "Julio", rate: 8)
-# Timelapse.create!(project: Project.last, start_time: Time.now)
-# tl = Timelapse.last
-# tl.end_time = Time.now
-# tl.duration = tl.end_time - tl.start_time
-# tl.project.cost = tl.duration * tl.project.rate

@@ -31,7 +31,7 @@ puts "destroying all users and its dependants projects and timelapses"
         project: @new_project
       )
       @new_timelapse.update(duration: TimeDifference.between(@new_timelapse.start_time, @new_timelapse.end_time).in_minutes)
-      timelapse_cost = ((@new_timelapse.duration / 3600) * @new_project.rate)
+      timelapse_cost = ((@new_timelapse.duration / 3600) * @new_project.rate).round(2)
       @new_project.update(cost: @new_project.cost + timelapse_cost )
     end
   end

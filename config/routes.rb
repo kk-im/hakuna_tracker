@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :projects, only: %i[create show destroy update ] do
     member do
-      patch :complete
+      patch :toogle_complete
       patch :sort
       get :send_email
     end

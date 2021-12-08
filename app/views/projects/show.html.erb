@@ -1,4 +1,5 @@
 <div class='main main-signed-in'>
+  <%= render 'projects/show_timetracker' %>
 
   <div class="show-projects-header">
     <h1 class="page-title">Projects</h1>
@@ -25,7 +26,7 @@
 
   <p><%= @total_cost.round(2) %></p>
     <div class="project-action-buttons">
-      <%= link_to 'Mark As Incomplete', complete_project_path(@project), class: 'button project-action-button',id: 'status-button', method: 'patch' %>
+      <%= link_to @toogle_complete, toogle_complete_project_path(@project), class: 'button project-action-button',id: 'status-button', method: 'patch' %>
       <%= link_to 'Generate Invoice', project_path(@project, format: :pdf), class: 'button project-action-button', id: 'invoice-button', target: "_blank" %> <%# Boton para PDF by: Mau:)  %>
       <%= link_to 'Send Email To Client', send_email_project_path(@project), class: "button project-action-button", id: 'email-button' %>
     </div>
