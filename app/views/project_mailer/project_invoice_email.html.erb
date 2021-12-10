@@ -1,17 +1,36 @@
+<head>
+  <style>
+      .btn-black {
+        color: white;
+        padding: 16px 32px;
+        border-radius: 4px;
+        background: #1EDD88;
+        transition: background 0.3s ease;
+        text-decoration: none;
+      }
 
-<div>
+      a{
+        color: white;
+      }
+      .center{
+        text-align: center;
+      }
+  </style>
+</head>
+
+<div class="center">
   <div>
-    <%= image_tag("logo.png") %>
+    <%= image_tag attachments["logo.png"].url %>
   </div>
 
-
   <div>
-    <h1>Hi,<%= @project.client %><h1>
+    <h1>Hi, <%= @project.client %>!<h1>
 
-    <h2>Here is your invoice of the project <%= @project.name %>, you can click on the link to see it</h2>
+    <h2>Here is your invoice for the project <%= @project.name %>, you can click on the link to see it</h2>
 
-    <p><%= link_to "Your invoice", project_url(@project, format: :pdf) %></p>
+    <%= link_to "Your invoice", project_url(@project, format: :pdf), class:"btn-black py-3" %>
 
     <p>See ya!</p>
+
   </div>
 </div>
